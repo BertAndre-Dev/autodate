@@ -95,7 +95,7 @@ export default function ServicesPageSections() {
           </div>
         </div>
 
-        <div className="mt-10">
+        {/* <div className="mt-10">
           <ScrollReveal>
             <div className="flex flex-col items-start justify-between gap-5 rounded-3xl border border-foreground/10 bg-foreground/5 p-6 sm:flex-row sm:items-center">
               <div>
@@ -117,7 +117,7 @@ export default function ServicesPageSections() {
               ) : null}
             </div>
           </ScrollReveal>
-        </div>
+        </div> */}
       </SectionWrapper>
     </div>
   );

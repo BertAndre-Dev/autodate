@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navContactCta, navLinks, siteConfig, uiStrings } from "@/constants";
+import { navContactCta, navLinks, uiStrings } from "@/constants";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -71,7 +71,8 @@ export default function Navbar() {
             aria-label={
               isMenuOpen ? uiStrings.closeMenuLabel : uiStrings.menuLabel
             }
-            aria-expanded={isMenuOpen}
+            aria-expanded={isMenuOpen ? "true" : "false"}
+            aria-controls="site-mobile-nav"
             className="inline-flex items-center justify-center rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm font-medium text-black/80 transition-colors hover:bg-neutral-50 md:hidden"
           >
             {isMenuOpen ? uiStrings.closeMenuLabel : uiStrings.menuLabel}
@@ -79,43 +80,45 @@ export default function Navbar() {
         </div>
       </div>
 
-      {isMenuOpen ? (
-        <div className="border-t border-neutral-200 bg-white md:hidden">
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
-            <nav
-              aria-label={uiStrings.mobileNavLabel}
-              className="flex flex-col gap-1"
-            >
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
+      <div
+        id="site-mobile-nav"
+        hidden={!isMenuOpen}
+        className="border-t border-neutral-200 bg-white md:hidden"
+      >
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
+          <nav
+            aria-label={uiStrings.mobileNavLabel}
+            className="flex flex-col gap-1"
+          >
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
 
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={cn(
-                      "rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
-                      isActive
-                        ? "bg-[#B71C1C]/10 font-semibold text-[#B71C1C]"
-                        : "text-black/80 hover:bg-neutral-50 hover:text-black",
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </nav>
-            <Link
-              href={navContactCta.href}
-              onClick={() => setIsMenuOpen(false)}
-              className={cn(ctaClass, "mt-2 w-full")}
-            >
-              {navContactCta.label}
-            </Link>
-          </div>
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={cn(
+                    "rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-[#B71C1C]/10 font-semibold text-[#B71C1C]"
+                      : "text-black/80 hover:bg-neutral-50 hover:text-black",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+          <Link
+            href={navContactCta.href}
+            onClick={() => setIsMenuOpen(false)}
+            className={cn(ctaClass, "mt-2 w-full")}
+          >
+            {navContactCta.label}
+          </Link>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }

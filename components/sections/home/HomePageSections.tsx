@@ -1,10 +1,4 @@
 "use client";
-
-import ScrollReveal from "@/components/motion/ScrollReveal";
-import SectionWrapper from "@/components/ui/SectionWrapper";
-import {
-  hero,
-} from "@/constants";
 import IntelligentFleetSection from "@/components/sections/home/IntelligentFleetSection";
 import ServicesLandingSection from "@/components/sections/home/ServicesLandingSection";
 import TailoredIndustriesSection from "@/components/sections/home/TailoredIndustriesSection";
@@ -13,7 +7,7 @@ import TailoredIndustriesSection from "@/components/sections/home/TailoredIndust
 export default function HomePageSections() {
 
   return (
-    <div className="flex flex-col gap-14">
+    <div className="flex flex-col gap-6 bg-white">
       <IntelligentFleetSection />
       <ServicesLandingSection />
       <TailoredIndustriesSection />

@@ -9,8 +9,6 @@ import type {
 
 export const siteConfig = {
   name: "AutoDate",
-  /** Logo wordmark (design uses “Autodate”). */
-  brandWordmark: "Autodate",
   tagline: "SMART FLEET",
 
   title: "AutoDate — Precision Engineering",
@@ -32,8 +30,13 @@ export const navContactCta = {
 
 export const homeHeroLanding: HomeHeroLanding = {
   pill: "Intelligent Fleet Solutions",
-  titlePrefix: "Intelligent fleet solutions for",
-  rotatingWords: ["Smart Routing", "Maintenance", "Real-Time Optimization",],
+  titleLine1: "Intelligent fleet solutions",
+  titleLine2Prefix: "for ",
+  rotatingWords: [
+    "Smart Routing",
+    "Maintenance",
+    "Real-Time Optimization",
+  ],
   description:
     "A unified, data-driven platform designed to make transportation safer, smarter, and more efficient for individuals, businesses, and government agencies.",
   mission: {
@@ -48,12 +51,7 @@ export const homeHeroLanding: HomeHeroLanding = {
   },
   ctaLabel: "Get Started",
   ctaHref: "/contact",
-  mainImageSrc:
-    "/main.svg",
-  // insetTopLeftSrc:
-  //   "/man.svg",
-  // insetBottomRightSrc:
-  //   "https://images.unsplash.com/photo-1473448914238-9ff0ee16fa73?auto=format&fit=crop&w=700&q=80",
+  mainImageSrc: "/main.svg",
   mainImageAlt: "White commercial van in a clean studio-style setting.",
   insetTopLeftAlt: "Professional approaching a vehicle.",
   insetBottomRightAlt: "Aerial view of highway interchange and traffic flow.",
@@ -113,7 +111,6 @@ export const hero: {
 } = {
   home: {
     variant: "default",
-    badge: "Manufacturing meets precision",
     title: "Engineering that ships on time.",
     subtitle:
       "From prototype to production, we help teams design and deliver high-quality parts with confidence.",
@@ -150,7 +147,7 @@ export const hero: {
   contact: {
     variant: "pageTitle",
     pageTitle: "Contact",
-    title: "Request a quote for your next project.",
+    title: "Get in touch",
     subtitle:
       "Share a few details and our team will respond with next steps and timelines.",
     ctaLabel: "Send request",

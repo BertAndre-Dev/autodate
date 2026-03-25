@@ -44,63 +44,6 @@ function TopoPattern({ className }: { className?: string }) {
   );
 }
 
-function MissionIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <circle cx="8" cy="10" r="3" stroke={accent} strokeWidth="1.75" />
-      <circle cx="22" cy="8" r="3" stroke={accent} strokeWidth="1.75" />
-      <circle cx="16" cy="22" r="3" stroke={accent} strokeWidth="1.75" />
-      <path
-        d="M10.5 11.5l4 7M19.5 9.5l-2 10M11 19l8-2"
-        stroke={accent}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function VisionIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="M16 6c-6 4-9 9-9 10s3 6 9 10c6-4 9-9 9-10s-3-6-9-10Z"
-        stroke={accent}
-        strokeWidth="1.75"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M16 12v6l3 3"
-        stroke={accent}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <rect
-        x="12"
-        y="20"
-        width="8"
-        height="5"
-        rx="1"
-        stroke={accent}
-        strokeWidth="1.5"
-      />
-    </svg>
-  );
-}
-
-
 
 type TwState = { wi: number; len: number; del: boolean };
 
@@ -171,23 +114,30 @@ export default function HomeHero() {
             </span>
 
             <h1 className="text-balance text-3xl font-semibold tracking-tight text-black sm:text-4xl md:text-5xl lg:text-[2.65rem] lg:leading-[1.12]">
-              <span className="text-black">{homeHeroLanding.titlePrefix} </span>
-              <span className="text-[#B71C1C]">{typed}</span>
-              <motion.span
-                className="ml-0.5 inline-block w-[2px] translate-y-0.5 bg-[#B71C1C] align-middle"
-                animate={
-                  animateTitle && showCursor
-                    ? { opacity: [1, 0, 1] }
-                    : { opacity: 1 }
-                }
-                transition={
-                  animateTitle
-                    ? { duration: 0.9, repeat: Infinity, ease: "easeInOut" }
-                    : undefined
-                }
-                style={{ height: "0.95em" }}
-                aria-hidden
-              />
+              <span className="block text-black">
+                {homeHeroLanding.titleLine1}
+              </span>
+              <span className="mt-1 block sm:mt-1.5">
+                <span className="text-black">
+                  {homeHeroLanding.titleLine2Prefix}
+                </span>
+                <span className="text-[#B71C1C]">{typed}</span>
+                <motion.span
+                  className="ml-0.5 inline-block w-[2px] translate-y-0.5 bg-[#B71C1C] align-middle"
+                  animate={
+                    animateTitle && showCursor
+                      ? { opacity: [1, 0, 1] }
+                      : { opacity: 1 }
+                  }
+                  transition={
+                    animateTitle
+                      ? { duration: 0.9, repeat: Infinity, ease: "easeInOut" }
+                      : undefined
+                  }
+                  style={{ height: "0.95em" }}
+                  aria-hidden
+                />
+              </span>
             </h1>
 
             <p className="max-w-lg text-pretty text-base leading-7 text-[#4C4C4C] md:text-lg md:leading-8">
@@ -195,10 +145,10 @@ export default function HomeHero() {
             </p>
 
             <div className="grid gap-6 sm:grid-cols-2 sm:gap-8">
-              <div className="flex gap-3">
-                <MissionIcon className="mt-0.5 h-9 w-9 shrink-0" />
+              <div className="flex items-center gap-3">
+                <Image src="/mission.svg" alt="Mission" width={36} height={36} />
                 <div>
-                  <p className="text-sm font-semibold text-black">
+                  <p className="text-base md:text-[18px] font-bold text-black">
                     {homeHeroLanding.mission.title}
                   </p>
                   <p className="mt-1 text-sm leading-6 text-[#4C4C4C]">
@@ -206,10 +156,10 @@ export default function HomeHero() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <VisionIcon className="mt-0.5 h-9 w-9 shrink-0" />
+              <div className="flex items-center gap-3">
+                <Image src="/vission.svg" alt="Vision" width={36} height={36} />
                 <div>
-                  <p className="text-sm font-semibold text-black">
+                  <p className="text-base md:text-[18px] font-bold text-black">
                     {homeHeroLanding.vision.title}
                   </p>
                   <p className="mt-1 text-sm leading-6 text-[#4C4C4C]">
@@ -222,7 +172,7 @@ export default function HomeHero() {
             <div>
               <Link
                 href={homeHeroLanding.ctaHref}
-                className="inline-flex h-11 items-center justify-center rounded-lg bg-[#B71C1C] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#B71C1C]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
+                className="w-2/4 inline-flex h-11 items-center justify-center rounded-lg bg-[#B71C1C] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#B71C1C]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
               >
                 {homeHeroLanding.ctaLabel}
               </Link>

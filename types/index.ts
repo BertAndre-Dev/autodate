@@ -33,7 +33,10 @@ export interface HomeHeroMissionVision {
 
 export interface HomeHeroLanding {
   pill: string;
-  titlePrefix: string;
+  /** First line of the hero headline (e.g. “Intelligent fleet solutions”). */
+  titleLine1: string;
+  /** Start of second line before the rotating word (e.g. “for ”). */
+  titleLine2Prefix: string;
   rotatingWords: readonly string[];
   description: string;
   mission: HomeHeroMissionVision;
