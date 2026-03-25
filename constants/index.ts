@@ -407,7 +407,7 @@ export const contact = {
     placeholders: {
       name: "Your name",
       email: "name@company.com",
-      details: "Briefly describe what you need (requirements, constraints, and timeline).",
+      details: "Write your message",
     },
     submitLabel: "Submit request",
     submittingLabel: "Submitting...",

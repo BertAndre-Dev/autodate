@@ -18,12 +18,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className="h-full antialiased bg-white"
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Navbar />
         <PageTransition>
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 bg-white">{children}</main>
         </PageTransition>
         <Footer />
       </body>
