@@ -7,25 +7,15 @@ import { homeServicesLanding, homeServicesLandingCards } from "@/constants";
 import Image from "next/image";
 
 function ServiceIcon({ iconKey }: { iconKey: string }) {
-
-  // Simple inline SVG icons (no external icon dependency).
   switch (iconKey) {
     case "operations":
-      return (
-        <Image src="/operations.svg" alt="Operations" width={24} height={24} />
-      );
+      return <Image src="/operations.svg" alt="Operations" width={24} height={24} />;
     case "unified":
-      return (
-        <Image src="/unified.svg" alt="Unified" width={24} height={24} />
-      );
+      return <Image src="/unified.svg" alt="Unified" width={24} height={24} />;
     case "risk":
-      return (
-        <Image src="/risk.svg" alt="Risk" width={24} height={24} />
-      );
+      return <Image src="/risk.svg" alt="Risk" width={24} height={24} />;
     case "integration":
-      return (
-        <Image src="/integration.svg" alt="Integration" width={24} height={24} />
-      );
+      return <Image src="/integration.svg" alt="Integration" width={24} height={24} />;
     default:
       return null;
   }
@@ -55,16 +45,19 @@ export default function ServicesLandingSection() {
           </ScrollReveal>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {/* pt-6 gives space for the overlapping icon above each card */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch pt-6">
           {homeServicesLandingCards.map((card) => {
             const inner = (
-              <div className="rounded-2xl bg-[#444444] p-7 ring-1 ring-whit">
-                <div className="flex items-center justify-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white ring-1 ring-white">
+              <div className="relative flex h-full flex-col rounded-2xl bg-[#444444] px-4 pt-10 pb-7 ring-1 ring-white/5">
+                {/* Icon circle overlapping the top edge of the card */}
+                <div className="absolute -top-6 left-7">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md">
                     <ServiceIcon iconKey={card.icon} />
                   </div>
                 </div>
-                <h3 className="mt-6 text-lg font-semibold text-white">
+
+                <h3 className="text-lg font-semibold text-white">
                   {card.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-white/70">
@@ -83,7 +76,9 @@ export default function ServicesLandingSection() {
 
             return (
               <ScrollReveal key={card.title} className="h-full">
-                <motion.div whileHover={cardWhileHover}>{inner}</motion.div>
+                <motion.div className="h-full" whileHover={cardWhileHover}>
+                  {inner}
+                </motion.div>
               </ScrollReveal>
             );
           })}
@@ -92,4 +87,3 @@ export default function ServicesLandingSection() {
     </section>
   );
 }
-
