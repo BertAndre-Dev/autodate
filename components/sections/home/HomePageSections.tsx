@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import ScrollReveal from "@/components/motion/ScrollReveal";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import {

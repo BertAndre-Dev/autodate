@@ -41,8 +41,8 @@ export interface HomeHeroLanding {
   ctaLabel: string;
   ctaHref: string;
   mainImageSrc: string;
-  insetTopLeftSrc: string;
-  insetBottomRightSrc: string;
+  insetTopLeftSrc?: string;
+  insetBottomRightSrc?: string;
   mainImageAlt: string;
   insetTopLeftAlt: string;
   insetBottomRightAlt: string;
