@@ -21,12 +21,19 @@ export default function SectionWrapper({
       <Component
         className={cn(
           "relative overflow-hidden",
-          "bg-gradient-to-b from-red-700 via-red-600 to-red-800",
           "py-16 md:py-20",
           className,
         )}
       >
-        <div className="absolute inset-0 bg-black/5" aria-hidden="true" />
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          aria-hidden="true"
+          style={{ backgroundImage: 'url("/img.svg")' }}
+        />
+        <div
+          className="absolute inset-0 bg-[#B71C1C]/70"
+          aria-hidden="true"
+        />
         <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="mx-auto w-full max-w-3xl rounded-3xl bg-background p-8 shadow-xl shadow-black/10 md:p-10">
             {children}

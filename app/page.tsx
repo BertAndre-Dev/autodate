@@ -1,5 +1,8 @@
 import Hero from "@/components/layout/Hero";
 import HomePageSections from "@/components/sections/home/HomePageSections";
+import ContactQuoteForm from "@/components/forms/ContactQuoteForm";
+import ScrollReveal from "@/components/motion/ScrollReveal";
+import SectionWrapper from "@/components/ui/SectionWrapper";
 import { hero } from "@/constants";
 
 export default function Home() {
@@ -7,6 +10,11 @@ export default function Home() {
     <>
       <Hero {...hero.home} />
       <HomePageSections />
+      <SectionWrapper variant="figmaContact" className="pb-10 md:pb-12">
+        <ScrollReveal>
+          <ContactQuoteForm />
+        </ScrollReveal>
+      </SectionWrapper>
     </>
   );
 }

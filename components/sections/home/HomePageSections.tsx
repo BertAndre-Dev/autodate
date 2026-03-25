@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils";
 import {
   hero,
   homeFeatures,
-  homePageCopy,
-  homeStats,
-  homeTestimonials,
 } from "@/constants";
+import IntelligentFleetSection from "@/components/sections/home/IntelligentFleetSection";
+import ServicesLandingSection from "@/components/sections/home/ServicesLandingSection";
+import TailoredIndustriesSection from "@/components/sections/home/TailoredIndustriesSection";
 
 const cardClass =
   "rounded-2xl border border-foreground/10 bg-background p-6";
@@ -37,11 +37,6 @@ export default function HomePageSections() {
               <p className="text-sm font-semibold text-foreground/80">
                 {hero.home.badge}
               </p>
-            </ScrollReveal>
-            <ScrollReveal delayMs={80}>
-              <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
-                {homePageCopy.featuresTitle}
-              </h2>
             </ScrollReveal>
           </div>
 
@@ -86,7 +81,13 @@ export default function HomePageSections() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper>
+      <IntelligentFleetSection />
+
+      <ServicesLandingSection />
+
+      <TailoredIndustriesSection />
+
+      {/* <SectionWrapper>
         <div className="grid gap-5 sm:grid-cols-3">
           {homeStats.map((stat) => (
             <ScrollReveal key={stat.label}>
@@ -99,55 +100,8 @@ export default function HomePageSections() {
             </ScrollReveal>
           ))}
         </div>
-      </SectionWrapper>
-
-      <SectionWrapper>
-        <div className="flex flex-col gap-10">
-          <div>
-            <ScrollReveal>
-              <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
-                {homePageCopy.testimonialsTitle}
-              </h2>
-            </ScrollReveal>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            {homeTestimonials.map((t) => (
-              <ScrollReveal key={`${t.name}-${t.company}`}>
-                <div className={cn(cardClass, "h-full")}>
-                  <p className="text-sm leading-7 text-foreground/80">
-                    {t.quote}
-                  </p>
-                  <div className="mt-4">
-                    <p className="text-sm font-semibold text-foreground">
-                      {t.name}
-                    </p>
-                    <p className="text-sm text-foreground/60">
-                      {t.company}
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal>
-            <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-              <div>
-                <p className="text-sm font-semibold text-foreground/80">
-                  {homePageCopy.ctaPrompt}
-                </p>
-              </div>
-              <a
-                href={hero.home.ctaHref}
-                className="inline-flex h-10 items-center justify-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
-              >
-                {hero.home.ctaLabel}
-              </a>
-            </div>
-          </ScrollReveal>
-        </div>
-      </SectionWrapper>
+      </SectionWrapper> */}
+    
     </div>
   );
 }

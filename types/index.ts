@@ -25,3 +25,14 @@ export interface FooterColumn {
   links: NavLink[];
   socialLinks?: NavLink[];
 }
+
+export interface TailoredIndustryItem {
+  id: string;
+  label: string;
+  /** Small icon in the accordion row (e.g. `*-icon.svg`). */
+  iconSrc: string;
+  /** Large panel image when this row is active (e.g. full `*.svg` asset). */
+  panelImageSrc: string;
+  imageAlt: string;
+  body: string;
+}

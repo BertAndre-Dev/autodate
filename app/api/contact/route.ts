@@ -12,8 +12,6 @@ export const runtime = "nodejs";
 interface QuoteRequestBody {
   name: unknown;
   email: unknown;
-  company: unknown;
-  budget: unknown;
   details: unknown;
 }
 
@@ -35,8 +33,6 @@ export async function POST(req: NextRequest) {
 
   const name = toSafeString(body.name);
   const email = toSafeString(body.email);
-  const company = toSafeString(body.company);
-  const budget = toSafeString(body.budget);
   const details = toSafeString(body.details);
 
   if (!name || name.length < 2) {
@@ -45,14 +41,6 @@ export async function POST(req: NextRequest) {
 
   if (!email || !isValidEmail(email)) {
     return jsonError(contact.form.fieldErrors.invalidEmail, 400);
-  }
-
-  const allowedBudgetValues = new Set<string>(
-    contact.form.budgetOptions.map((o) => o.value),
-  );
-
-  if (!budget || !allowedBudgetValues.has(budget)) {
-    return jsonError(contact.form.fieldErrors.required, 400);
   }
 
   if (!details) {
@@ -72,8 +60,6 @@ export async function POST(req: NextRequest) {
   const sanitizedPayload = {
     name: sanitizeText(name, 80),
     email: normalizeWhitespace(email).toLowerCase(),
-    company: company ? sanitizeText(company, 120) : "",
-    budget,
     details: sanitizeText(detailsTrimmed, detailsMaxLength),
   };
 

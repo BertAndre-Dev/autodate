@@ -6,7 +6,7 @@ import { buttonWhileHover, buttonWhileTap } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 const baseButtonClass =
-  "inline-flex items-center justify-center rounded-full bg-foreground px-6 py-3 text-background transition-colors hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center rounded-full bg-[#B71C1C] px-6 py-3 text-white transition-colors hover:bg-[#B71C1C]/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30 disabled:cursor-not-allowed disabled:opacity-60";
 
 export interface MotionSubmitButtonProps {
   children: ReactNode;

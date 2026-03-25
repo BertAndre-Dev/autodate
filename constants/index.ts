@@ -1,4 +1,10 @@
-import type { FooterColumn, HeroProps, NavLink, ServiceCard } from "@/types";
+import type {
+  FooterColumn,
+  HeroProps,
+  NavLink,
+  ServiceCard,
+  TailoredIndustryItem,
+} from "@/types";
 
 export const siteConfig = {
   name: "AutoDate",
@@ -158,11 +164,117 @@ export const homeTestimonials = [
   },
 ] as const;
 
-export const homePageCopy = {
-  featuresTitle: "Built to reduce uncertainty during delivery.",
-  testimonialsTitle: "Teams choose AutoDate for clarity and momentum.",
-  ctaPrompt: "Ready to plan your next release?",
+
+export const homeIntelligentFleet = {
+  pill: "Intelligent Fleet Management",
+  title: "Intelligent Fleet Management",
+  description:
+    "Gain complete visibility and control over your fleet operations with a centralized, real-time intelligence system designed for efficiency, safety, and scalability. Track vehicle movement, driver behavior, and leverage vehicle data insights to anticipate maintenance needs.",
+  capabilitiesTitle: "Key Capabilities",
+  collageTopImageSrc: "/Intelligent/cars.svg",
+  collageTopImageAlt: "Aerial view of a large fleet parking area with many vehicles.",
+  collageBottomImageSrc: "/Intelligent/man.svg",
+  collageBottomImageAlt:
+    "Fleet professional on a phone while seated in a vehicle.",
+  capabilities: [
+    "Real-Time Monitoring & Optimization",
+    "Predictive Maintenance & Lifecycle Management",
+    "Smart Routing & Traffic Intelligence",
+  ],
 } as const;
+
+export const homeServicesLanding = {
+  pill: "Smart, Data-Driven Solution",
+  title: "Our Services",
+} as const;
+
+export const homeServicesLandingCards: ServiceCard[] = [
+  {
+    title: "Operations Management",
+    description:
+      "Streamline and automate fleet operations from dispatch to delivery, monitor performance, reduce inefficiencies, and improve turnaround with intelligent workflows and real-time oversight.",
+    icon: "operations",
+  },
+  {
+    title: "Unified Vehicle Data & Compliance System",
+    description:
+      "Centralize all vehicle-related data including registration, insurance, licensing, and maintenance records into a single, secure platform. Ensure regulatory compliance while eliminating data fragmentation and fraud.",
+    icon: "unified",
+  },
+  {
+    title: "Risk, Safety, Incident Intelligence",
+    description:
+      "Access real-time alerts on accidents, road hazards, and security threats. Enable proactive risk mitigation through community-driven reporting, predictive analytics, and incident tracking.",
+    icon: "risk",
+  },
+  {
+    title: "Enterprise Date & Integration Layer",
+    description:
+      "Unlock powerful insights from aggregated mobility data. Support decision-making with analytics on traffic patterns, vehicle usage, driver behavior, and operational performance.",
+    icon: "integration",
+  },
+] ;
+
+export const homeTailoredSection = {
+  pill: "Industry Fleet Solutions",
+  title: "Tailored Solution For Every Industry",
+  description:
+    "Our platform is built to adapt across industries, delivering customized mobility intelligence solutions that address unique operational challenges.",
+  heroImageSrc: "/tailored/logistics.svg",
+  heroImageAlt:
+    "Fleet and logistics imagery representing tailored industry solutions.",
+} as const;
+
+export const homeTailoredIndustries: TailoredIndustryItem[] = [
+  {
+    id: "logistics",
+    label: "Logistics & Transportation",
+    iconSrc: "/tailored/logistics-icon.svg",
+    panelImageSrc: "/tailored/logistics.svg",
+    imageAlt: "Logistics and transportation fleet solutions.",
+    body: "Optimize routes, dwell time, and asset utilization with live visibility from first mile to last. Integrate dispatch, compliance, and performance metrics in one operational view.",
+  },
+  {
+    id: "insurance",
+    label: "Insurance Providers",
+    iconSrc: "/tailored/insurance-icon.svg",
+    panelImageSrc: "/tailored/insurance.svg",
+    imageAlt: "Insurance and telematics for providers.",
+    body: "Enrich underwriting and claims with verified vehicle and usage data. Reduce fraud exposure and speed decisions with structured telematics and policy-ready reporting.",
+  },
+  {
+    id: "government",
+    label: "Government & Public Sector",
+    iconSrc: "/tailored/government-icon.svg",
+    panelImageSrc: "/tailored/government.svg",
+    imageAlt: "Government and public sector fleet programs.",
+    body: "Support public fleet accountability, safety programs, and citizen-facing services with auditable records, standardized reporting, and role-based access for agencies and partners.",
+  },
+  {
+    id: "ride",
+    label: "Ride-Hailing & Mobility Platforms",
+    iconSrc: "/tailored/ride-icon.svg",
+    panelImageSrc: "/tailored/ride.svg",
+    imageAlt: "Ride-hailing and mobility platforms.",
+    body: "Scale driver onboarding, trip quality, and trust & safety workflows. Unify marketplace operations with real-time incident signals and consistent data across markets.",
+  },
+  {
+    id: "corporate",
+    label: "Corporate & Enterprise Fleet",
+    iconSrc: "/tailored/corporate-icon.svg",
+    panelImageSrc: "/tailored/coperate.svg",
+    imageAlt: "Corporate and enterprise fleet management.",
+    body: "Give fleet, finance, and HR shared truth on cost, utilization, and policy adherence. Roll out mobility programs with guardrails, automation, and executive-ready dashboards.",
+  },
+  {
+    id: "automotive",
+    label: "Automotive & Mobility Startups",
+    iconSrc: "/tailored/automative-icon.svg",
+    panelImageSrc: "/tailored/automative.svg",
+    imageAlt: "Automotive and mobility startup solutions.",
+    body: "Ship faster with APIs and analytics that grow with your product. From prototype fleets to production scale, keep telemetry, compliance, and customer experience aligned.",
+  },
+];
 
 export const aboutValues = [
   {
@@ -271,37 +383,25 @@ export const contact = {
     },
   ],
   form: {
-    title: "Quote request",
+    title: "Send us a message",
     description:
-      "Provide project details below. We’ll use them to respond with next steps and timelines.",
+      "Have a sales inquiry, partnership proposal, or a general question? Fill out the form below and we will get back to you promptly.",
     fields: {
       nameLabel: "Name",
-      emailLabel: "Work email",
-      companyLabel: "Company (optional)",
-      budgetLabel: "Estimated budget",
-      detailsLabel: "Project details",
+      emailLabel: "Email",
+      detailsLabel: "Message",
     },
     placeholders: {
       name: "Your name",
       email: "name@company.com",
-      company: "Company name (optional)",
-      budget: "Select a range",
       details: "Briefly describe what you need (requirements, constraints, and timeline).",
     },
-    budgetOptions: [
-      { value: "under_25k", label: "Under $25k" },
-      { value: "25k_50k", label: "$25k–$50k" },
-      { value: "50k_100k", label: "$50k–$100k" },
-      { value: "100k_plus", label: "$100k+" },
-    ],
     submitLabel: "Submit request",
     submittingLabel: "Submitting...",
     successTitle: "Request received",
     successMessage:
       "Thanks—your quote request has been received. We’ll follow up shortly.",
     apiErrorTitle: "Could not submit request",
-    privacyNote:
-      "AutoDate will only use your details to respond to this request.",
     fieldErrors: {
       required: "This field is required.",
       invalidEmail: "Enter a valid email address.",
