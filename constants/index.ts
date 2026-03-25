@@ -1,6 +1,7 @@
 import type {
   FooterColumn,
   HeroProps,
+  HomeHeroLanding,
   NavLink,
   ServiceCard,
   TailoredIndustryItem,
@@ -8,8 +9,10 @@ import type {
 
 export const siteConfig = {
   name: "AutoDate",
-  tagline: "Smart Fleet Management",
-  
+  /** Logo wordmark (design uses “Autodate”). */
+  brandWordmark: "Autodate",
+  tagline: "SMART FLEET",
+
   title: "AutoDate — Precision Engineering",
   description:
     "From prototype to production, AutoDate helps teams engineer reliable products with speed, quality, and clarity.",
@@ -17,11 +20,44 @@ export const siteConfig = {
 
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About us" },
   { href: "/services", label: "Services" },
-  { href: "/products", label: "Products" },
-  { href: "/contact", label: "Contact" },
+  { href: "/products", label: "Solutions" },
 ];
+
+export const navContactCta = {
+  href: "/contact",
+  label: "Contact Us",
+} as const;
+
+export const homeHeroLanding: HomeHeroLanding = {
+  pill: "Intelligent Fleet Solutions",
+  titlePrefix: "Intelligent fleet solutions for",
+  rotatingWords: ["Smart Routing", "Maintenance", "Real-Time Optimization",],
+  description:
+    "A unified, data-driven platform designed to make transportation safer, smarter, and more efficient for individuals, businesses, and government agencies.",
+  mission: {
+    title: "Mission",
+    body:
+      "Empower every fleet with real-time visibility, actionable insights, and tools that reduce risk while improving operational performance.",
+  },
+  vision: {
+    title: "Vision",
+    body:
+      "A world where connected mobility is predictable, compliant, and sustainable — powered by intelligence built into every journey.",
+  },
+  ctaLabel: "Get Started",
+  ctaHref: "/contact",
+  mainImageSrc:
+    "/main.svg",
+  // insetTopLeftSrc:
+  //   "/man.svg",
+  // insetBottomRightSrc:
+  //   "https://images.unsplash.com/photo-1473448914238-9ff0ee16fa73?auto=format&fit=crop&w=700&q=80",
+  mainImageAlt: "White commercial van in a clean studio-style setting.",
+  insetTopLeftAlt: "Professional approaching a vehicle.",
+  insetBottomRightAlt: "Aerial view of highway interchange and traffic flow.",
+};
 
 export const footerColumns: FooterColumn[] = [
   {
@@ -122,26 +158,6 @@ export const hero: {
   },
 };
 
-export const homeFeatures: ServiceCard[] = [
-  {
-    title: "Design with manufacturing in mind",
-    description:
-      "We align requirements, tolerances, and workflows so decisions stay consistent through production.",
-    icon: "layers",
-  },
-  {
-  title: "Prototype quickly, validate early",
-    description:
-      "Shorten feedback loops with structured prototypes that surface risks before scale.",
-    icon: "wand",
-  },
-  {
-    title: "Deliver with dependable quality",
-    description:
-      "Quality checks and documentation support smoother handoffs and fewer surprises.",
-    icon: "shield",
-  },
-];
 
 export const homeStats = [
   { value: "30+", label: "Engineering releases supported" },

@@ -26,6 +26,28 @@ export interface FooterColumn {
   socialLinks?: NavLink[];
 }
 
+export interface HomeHeroMissionVision {
+  title: string;
+  body: string;
+}
+
+export interface HomeHeroLanding {
+  pill: string;
+  titlePrefix: string;
+  rotatingWords: readonly string[];
+  description: string;
+  mission: HomeHeroMissionVision;
+  vision: HomeHeroMissionVision;
+  ctaLabel: string;
+  ctaHref: string;
+  mainImageSrc: string;
+  insetTopLeftSrc: string;
+  insetBottomRightSrc: string;
+  mainImageAlt: string;
+  insetTopLeftAlt: string;
+  insetBottomRightAlt: string;
+}
+
 export interface TailoredIndustryItem {
   id: string;
   label: string;

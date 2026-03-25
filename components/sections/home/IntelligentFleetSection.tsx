@@ -36,10 +36,9 @@ export default function IntelligentFleetSection() {
     <section className="bg-white py-16 md:py-20">
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
         <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
-          <ScrollReveal>
+          <ScrollReveal className="hidden lg:block">
             <div className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
               <div className="relative pt-8 pr-8 sm:pt-10 sm:pr-14">
-                {/* Dots sit in the stagger gap between the two images, behind both */}
                 <RedDotGrid
                   cols={5}
                   rows={9}
