@@ -5,46 +5,29 @@ import ScrollReveal from "@/components/motion/ScrollReveal";
 import { cn } from "@/lib/utils";
 import { homeIntelligentFleet } from "@/constants";
 
-function RedDotGrid({ className }: { className?: string }) {
+function RedDotGrid({
+  className,
+  cols,
+  rows,
+}: {
+  className?: string;
+  cols: number;
+  rows: number;
+}) {
+  const count = cols * rows;
   return (
     <div
-      className={cn(
-        "grid grid-cols-6 gap-1.5 opacity-80",
-        className,
-      )}
+      className={cn("grid gap-1.5", className)}
+      style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, auto))` }}
       aria-hidden
     >
-      {Array.from({ length: 36 }).map((_, i) => (
+      {Array.from({ length: count }).map((_, i) => (
         <span
           key={i}
-          className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#B71C1C]"
+          className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#B71C1C]/55"
         />
       ))}
     </div>
-  );
-}
-
-function MapPinIcon() {
-  return (
-    <svg
-      className="mt-0.5 h-5 w-5 shrink-0 text-[#B71C1C]"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="M12 11.5C13.3807 11.5 14.5 10.3807 14.5 9C14.5 7.61929 13.3807 6.5 12 6.5C10.6193 6.5 9.5 7.61929 9.5 9C9.5 10.3807 10.6193 11.5 12 11.5Z"
-        stroke="currentColor"
-        strokeWidth="1.75"
-      />
-      <path
-        d="M12 22C12 22 19 16 19 9C19 5.13401 15.866 2 12 2C8.13401 2 5 5.13401 5 9C5 16 12 22 12 22Z"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
 
@@ -55,11 +38,20 @@ export default function IntelligentFleetSection() {
         <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
           <ScrollReveal>
             <div className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
-              <RedDotGrid className="absolute -left-2 top-6 z-0 sm:left-0" />
-              <RedDotGrid className="absolute bottom-10 right-2 z-0 sm:right-6" />
+              <div className="relative pt-8 pr-8 sm:pt-10 sm:pr-14">
+                {/* Dots sit in the stagger gap between the two images, behind both */}
+                <RedDotGrid
+                  cols={5}
+                  rows={9}
+                  className="pointer-events-none absolute z-0 left-[40%] top-[2%] opacity-90 sm:left-[43%] sm:top-[3%] md:left-[44%]"
+                />
+                <RedDotGrid
+                  cols={7}
+                  rows={13}
+                  className="pointer-events-none absolute z-0 left-[32%] top-[36%] sm:left-[39%] md:top-[78%]"
+                />
 
-              <div className="relative z-[1] pt-8 pr-8 sm:pt-10 sm:pr-14">
-                <div className="relative aspect-[4/3] w-[55%] lg:h-[400px] overflow-hidden rounded-2xl bg-neutral-100 shadow-lg ring-1 ring-neutral-200/80">
+                <div className="relative z-10 aspect-[4/3] w-[55%] overflow-hidden rounded-2xl bg-neutral-100 shadow-lg ring-1 ring-neutral-200/80 lg:h-[400px]">
                   <Image
                     src={homeIntelligentFleet.collageTopImageSrc}
                     alt={homeIntelligentFleet.collageTopImageAlt}
@@ -68,7 +60,7 @@ export default function IntelligentFleetSection() {
                     sizes="(min-width: 1024px) 45vw, 90vw"
                   />
                 </div>
-                <div className="absolute -bottom-2 right-0 z-[2] w-[50%] overflow-hidden rounded-2xl bg-neutral-100 shadow-xl ring-1 ring-neutral-200/80 md:-bottom-10">
+                <div className="absolute -bottom-2 right-0 z-20 w-[50%] overflow-hidden rounded-2xl bg-neutral-100 shadow-xl ring-1 ring-neutral-200/80 md:-bottom-10">
                   <div className="relative aspect-[3/4] lg:h-[400px] w-full">
                     <Image
                       src={homeIntelligentFleet.collageBottomImageSrc}
