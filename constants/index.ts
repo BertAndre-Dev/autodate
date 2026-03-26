@@ -38,7 +38,7 @@ export const homeHeroLanding: HomeHeroLanding = {
     "Real-Time Optimization",
   ],
   description:
-    "A unified, data-driven platform designed to make transportation safer, smarter, and more efficient for individuals, businesses, and government agencies.",
+    "A unified, data-driven platform designed to make transportation safer, smarter, and more efficient for individuals, businesses, while collaborating with government agencies.",
   mission: {
     title: "Mission",
     body:
