@@ -21,7 +21,7 @@ export default function SectionWrapper({
       <Component
         className={cn(
           "relative overflow-hidden",
-          "py-16 md:py-20 bg-white mx-auto w-full max-w-6xl my-8 rounded-lg",
+          "py-16 md:py-20 bg-white mx-auto w-full max-w-6xl m-8 rounded-lg",
           className,
         )}
       >

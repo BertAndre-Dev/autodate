@@ -24,7 +24,7 @@ export const navLinks: NavLink[] = [
 ];
 
 export const navContactCta = {
-  href: "/contact",
+  href: "/#contact",
   label: "Contact Us",
 } as const;
 
@@ -62,26 +62,32 @@ export const footerColumns: FooterColumn[] = [
     title: "Quick Links",
     links: [
       { href: "/", label: "Home" },
-      { href: "/about", label: "About Us" },
-      { href: "/services", label: "Services" },
-      { href: "/contact", label: "Contact Us" },
+      { href: "/#about", label: "About Us" },
+      { href: "/#services", label: "Services" },
+      { href: "/#contact", label: "Contact Us" },
     ],
   },
   {
     title: "Services",
     links: [
-      { href: "/services", label: "Operations Management" },
-      { href: "/services", label: "Unified Vehicle Data & Compliance System" },
-      { href: "/services", label: "Risk, Safety, Incident Intelligence" },
-      { href: "/services", label: "Enterprise Date & Integration Layer" },
+      { href: "/#services", label: "Operations Management" },
+      {
+        href: "/#services",
+        label: "Unified Vehicle Data & Compliance System",
+      },
+      { href: "/#services", label: "Risk, Safety, Incident Intelligence" },
+      { href: "/#services", label: "Enterprise Date & Integration Layer" },
     ],
   },
   {
     title: "Contact",
     links: [
-      { href: "/contact", label: "20 Awudu Ekpheka Blvd, Lekki Phase 1, Lagos Nigeria." },
-      { href: "/contact", label: "inquiry@autodatefleet.com" },
-      { href: "/contact", label: "+234  913 866 7927" },
+      {
+        href: "/#contact",
+        label: "20 Awudu Ekpheka Blvd, Lekki Phase 1, Lagos Nigeria.",
+      },
+      { href: "/#contact", label: "inquiry@autodatefleet.com" },
+      { href: "/#contact", label: "+234  913 866 7927" },
 
     ],
     socialLinks: [

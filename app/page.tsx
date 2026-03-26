@@ -11,7 +11,9 @@ export default function Home() {
       <HomePageSections />
       <SectionWrapper variant="figmaContact" className="pb-10 md:pb-12">
         <ScrollReveal>
-          <ContactQuoteForm />
+          <div id="contact" className="scroll-mt-24">
+            <ContactQuoteForm />
+          </div>
         </ScrollReveal>
       </SectionWrapper>
     </>
