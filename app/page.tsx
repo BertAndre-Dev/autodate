@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <HomeHero />
       <HomePageSections />
-      <SectionWrapper variant="figmaContact" className="pb-10 md:pb-12 bg-white" >
+      <SectionWrapper variant="figmaContact" className="pb-10 md:pb-12">
         <ScrollReveal>
           <ContactQuoteForm />
         </ScrollReveal>

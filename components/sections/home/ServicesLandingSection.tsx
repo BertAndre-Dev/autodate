@@ -25,7 +25,10 @@ export default function ServicesLandingSection() {
   const reducedMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-neutral-950 py-16 md:py-20">
+    <section
+      id="services"
+      className="relative scroll-mt-24 overflow-hidden bg-neutral-950 py-16 md:py-20"
+    >
       <div
         className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-neutral-950 to-black"
         aria-hidden="true"

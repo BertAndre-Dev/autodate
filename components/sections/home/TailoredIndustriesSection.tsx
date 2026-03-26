@@ -21,7 +21,10 @@ export default function TailoredIndustriesSection() {
   const heroAlt = openIndustry?.imageAlt ?? homeTailoredSection.heroImageAlt;
 
   return (
-    <section className="relative overflow-hidden bg-neutral-50 py-16 md:py-20">
+    <section
+      id="solutions"
+      className="relative scroll-mt-24 overflow-hidden bg-neutral-50 py-16 md:py-20"
+    >
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         aria-hidden="true"

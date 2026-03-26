@@ -88,7 +88,10 @@ export default function HomeHero() {
   );
 
   return (
-    <section className="relative overflow-hidden bg-white pb-16 pt-10 md:pb-20 md:pt-14 lg:pt-16">
+    <section
+      id="about"
+      className="relative scroll-mt-24 overflow-hidden bg-white pb-16 pt-10 md:pb-20 md:pt-14 lg:pt-16"
+    >
       <TopoPattern />
 
       <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
@@ -128,7 +131,7 @@ export default function HomeHero() {
             </p>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
-              <div className="flex items-start gap-3">
+              <div className="flex items-center gap-3">
                 <Image src="/mission.svg" alt="Mission" width={36} height={36} className="shrink-0 mt-0.5" />
                 <div>
                   <p className="text-base font-bold text-black md:text-[18px]">
@@ -139,7 +142,7 @@ export default function HomeHero() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
+              <div className="flex items-center gap-3">
                 <Image src="/vission.svg" alt="Vision" width={36} height={36} className="shrink-0 mt-0.5" />
                 <div>
                   <p className="text-base font-bold text-black md:text-[18px]">

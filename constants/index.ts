@@ -18,9 +18,9 @@ export const siteConfig = {
 
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About us" },
-  { href: "/services", label: "Services" },
-  { href: "/products", label: "Solutions" },
+  { href: "/#about", label: "About us" },
+  { href: "/#services", label: "Services" },
+  { href: "/#solutions", label: "Solutions" },
 ];
 
 export const navContactCta = {
@@ -42,12 +42,12 @@ export const homeHeroLanding: HomeHeroLanding = {
   mission: {
     title: "Mission",
     body:
-      "Empower every fleet with real-time visibility, actionable insights, and tools that reduce risk while improving operational performance.",
+      "To build a connected mobility ecosystem that leverages real-time data and automation to optimize transportation & empower smarter decision-making.",
   },
   vision: {
     title: "Vision",
     body:
-      "A world where connected mobility is predictable, compliant, and sustainable — powered by intelligence built into every journey.",
+      "To become Africa’s leading intelligent mobility infrastructure where every vehicle is seamlessly connected through data and technology. ",
   },
   ctaLabel: "Get Started",
   ctaHref: "/contact",
@@ -232,7 +232,7 @@ export const homeTailoredSection = {
   pill: "Industry Fleet Solutions",
   title: "Tailored Solution For Every Industry",
   description:
-    "Our platform is built to adapt across industries, delivering customized mobility intelligence solutions that address unique operational challenges.",
+    "We're not just another energy company. SAAIR Energy is Africa's integrated energy powerhouse, bridging conventional and renewable systems with advanced ",
   heroImageSrc: "/tailored/logistics.svg",
   heroImageAlt:
     "Fleet and logistics imagery representing tailored industry solutions.",
@@ -253,7 +253,7 @@ export const homeTailoredIndustries: TailoredIndustryItem[] = [
     iconSrc: "/tailored/insurance-icon.svg",
     panelImageSrc: "/tailored/insurance.svg",
     imageAlt: "Insurance and telematics for providers.",
-    body: "Enrich underwriting and claims with verified vehicle and usage data. Reduce fraud exposure and speed decisions with structured telematics and policy-ready reporting.",
+    body: "Enhance underwriting accuracy and claims processing with access to reliable vehicle data, driver behavior metrics, and incident reports. ",
   },
   {
     id: "government",
@@ -261,7 +261,7 @@ export const homeTailoredIndustries: TailoredIndustryItem[] = [
     iconSrc: "/tailored/government-icon.svg",
     panelImageSrc: "/tailored/government.svg",
     imageAlt: "Government and public sector fleet programs.",
-    body: "Support public fleet accountability, safety programs, and citizen-facing services with auditable records, standardized reporting, and role-based access for agencies and partners.",
+    body: "Enable smarter traffic management, data-driven policy-making, and improved road safety enforcement through centralized mobility intelligence.",
   },
   {
     id: "ride",
@@ -269,7 +269,7 @@ export const homeTailoredIndustries: TailoredIndustryItem[] = [
     iconSrc: "/tailored/ride-icon.svg",
     panelImageSrc: "/tailored/ride.svg",
     imageAlt: "Ride-hailing and mobility platforms.",
-    body: "Scale driver onboarding, trip quality, and trust & safety workflows. Unify marketplace operations with real-time incident signals and consistent data across markets.",
+    body: "Improve driver safety, route efficiency, and customer experience with real-time traffic intelligence and integrated vehicle data.",
   },
   {
     id: "corporate",
@@ -277,7 +277,7 @@ export const homeTailoredIndustries: TailoredIndustryItem[] = [
     iconSrc: "/tailored/corporate-icon.svg",
     panelImageSrc: "/tailored/coperate.svg",
     imageAlt: "Corporate and enterprise fleet management.",
-    body: "Give fleet, finance, and HR shared truth on cost, utilization, and policy adherence. Roll out mobility programs with guardrails, automation, and executive-ready dashboards.",
+    body: "Ensure employee safety, monitor fleet usage, and streamline transportation logistics across business operations.",
   },
   {
     id: "automotive",
@@ -285,7 +285,7 @@ export const homeTailoredIndustries: TailoredIndustryItem[] = [
     iconSrc: "/tailored/automative-icon.svg",
     panelImageSrc: "/tailored/automative.svg",
     imageAlt: "Automotive and mobility startup solutions.",
-    body: "Ship faster with APIs and analytics that grow with your product. From prototype fleets to production scale, keep telemetry, compliance, and customer experience aligned.",
+    body: "Leverage a robust data infrastructure to build and scale innovative mobility solutions faster and more efficiently.",
   },
 ];
 
