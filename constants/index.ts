@@ -50,7 +50,7 @@ export const homeHeroLanding: HomeHeroLanding = {
       "To become Africa’s leading intelligent mobility infrastructure where every vehicle is seamlessly connected through data and technology. ",
   },
   ctaLabel: "Get Started",
-  ctaHref: "/contact",
+  ctaHref: "#contact",
   mainImageSrc: "/main.svg",
   mainImageAlt: "White commercial van in a clean studio-style setting.",
   insetTopLeftAlt: "Professional approaching a vehicle.",

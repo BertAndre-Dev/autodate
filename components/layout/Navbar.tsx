@@ -65,7 +65,7 @@ export default function Navbar() {
             {navContactCta.label}
           </Link>
 
-          <button
+          {/* <button
             type="button"
             onClick={() => setIsMenuOpen((v) => !v)}
             aria-label={
@@ -76,7 +76,7 @@ export default function Navbar() {
             className="inline-flex items-center justify-center rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm font-medium text-black/80 transition-colors hover:bg-neutral-50 md:hidden"
           >
             {isMenuOpen ? uiStrings.closeMenuLabel : uiStrings.menuLabel}
-          </button>
+          </button> */}
         </div>
       </div>
 
