@@ -9,6 +9,9 @@ import CookieConsentBanner from "@/components/compliance/CookieConsentBanner";
 export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
+  icons: {
+    icon: "/Logo (14).svg",
+  },
 };
 
 export default function RootLayout({
