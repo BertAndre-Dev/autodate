@@ -11,8 +11,8 @@ export default function HomePageSections() {
     <div className="flex flex-col gap-6 bg-white">
       <IntelligentFleetSection />
       <ServicesLandingSection />
-      <PartnersLogoSlider />
       <TailoredIndustriesSection />
+      <PartnersLogoSlider />
     </div>
   );
 }
