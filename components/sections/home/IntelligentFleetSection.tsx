@@ -57,6 +57,7 @@ export default function IntelligentFleetSection() {
                     fill
                     className="object-cover"
                     sizes="(min-width: 1024px) 45vw, 90vw"
+                    loading="lazy"
                   />
                 </div>
                 <div className="absolute -bottom-2 right-0 z-20 w-[50%] overflow-hidden rounded-2xl bg-neutral-100 shadow-xl ring-1 ring-neutral-200/80 md:-bottom-10">
@@ -67,6 +68,7 @@ export default function IntelligentFleetSection() {
                       fill
                       className="object-cover"
                       sizes="(min-width: 1024px) 45vw, 90vw"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -99,7 +101,13 @@ export default function IntelligentFleetSection() {
               <ul className="flex flex-col gap-4">
                 {homeIntelligentFleet.capabilities.map((line) => (
                   <li key={line} className="flex gap-3">
-                    <Image src="/map.svg" alt="Map Pin" width={20} height={20} />
+                    <Image
+                      src="/map.svg"
+                      alt="Map pin"
+                      width={20}
+                      height={20}
+                      loading="lazy"
+                    />
                     <span className="text-sm font-medium leading-6 text-black md:text-base">
                       {line}
                     </span>

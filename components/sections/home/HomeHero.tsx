@@ -132,7 +132,14 @@ export default function HomeHero() {
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
               <div className="flex items-center gap-3">
-                <Image src="/mission.svg" alt="Mission" width={36} height={36} className="shrink-0 mt-0.5" />
+                <Image
+                  src="/mission.svg"
+                  alt="Mission"
+                  width={36}
+                  height={36}
+                  className="shrink-0 mt-0.5"
+                  priority
+                />
                 <div>
                   <p className="text-base font-bold text-black md:text-[18px]">
                     {homeHeroLanding.mission.title}
@@ -143,7 +150,14 @@ export default function HomeHero() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Image src="/vission.svg" alt="Vision" width={36} height={36} className="shrink-0 mt-0.5" />
+                <Image
+                  src="/vission.svg"
+                  alt="Vision"
+                  width={36}
+                  height={36}
+                  className="shrink-0 mt-0.5"
+                  priority
+                />
                 <div>
                   <p className="text-base font-bold text-black md:text-[18px]">
                     {homeHeroLanding.vision.title}
@@ -181,7 +195,13 @@ export default function HomeHero() {
                 </div>
 
                 <div className="absolute bottom-7 right-70">
-                  <Image src="/circle.svg" alt="Circle" width={260} height={260} />
+                  <Image
+                    src="/circle.svg"
+                    alt="Decorative circle accent"
+                    width={260}
+                    height={260}
+                    priority
+                  />
                 </div>
               </div>
             </div>

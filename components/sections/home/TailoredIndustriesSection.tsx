@@ -67,25 +67,27 @@ export default function TailoredIndustriesSection() {
                           isOpen && "ring-2 ring-[#B71C1C]",
                         )}
                       >
-                        <button
-                          type="button"
-                          className="flex w-full items-center gap-4 px-4 py-4 text-left"
-                          onClick={() =>
-                            setOpenId((prev) =>
-                              prev === item.id ? null : item.id,
-                            )
-                          }
-                          aria-expanded={isOpen}
-                          aria-controls={`tailored-panel-${item.id}`}
-                          id={`tailored-trigger-${item.id}`}
-                        >
+                        {isOpen ? (
+                          <button
+                            type="button"
+                            className="flex w-full items-center gap-4 px-4 py-4 text-left"
+                            onClick={() =>
+                              setOpenId((prev) =>
+                                prev === item.id ? null : item.id,
+                              )
+                            }
+                            aria-expanded="true"
+                            aria-controls={`tailored-panel-${item.id}`}
+                            id={`tailored-trigger-${item.id}`}
+                          >
                           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#D3151014]">
                             <Image
                               src={item.iconSrc}
-                              alt=""
+                              alt={`${item.label} icon`}
                               width={24}
                               height={24}
                               className="h-7 w-7 object-contain"
+                              loading="lazy"
                             />
                           </span>
                           <span className="min-w-0 flex-1 text-sm font-normal text-black md:text-base">
@@ -113,18 +115,67 @@ export default function TailoredIndustriesSection() {
                               />
                             </svg>
                           </span>
-                        </button>
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            className="flex w-full items-center gap-4 px-4 py-4 text-left"
+                            onClick={() =>
+                              setOpenId((prev) =>
+                                prev === item.id ? null : item.id,
+                              )
+                            }
+                            aria-expanded="false"
+                            aria-controls={`tailored-panel-${item.id}`}
+                            id={`tailored-trigger-${item.id}`}
+                          >
+                            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#D3151014]">
+                              <Image
+                                src={item.iconSrc}
+                                alt={`${item.label} icon`}
+                                width={24}
+                                height={24}
+                                className="h-7 w-7 object-contain"
+                                loading="lazy"
+                              />
+                            </span>
+                            <span className="min-w-0 flex-1 text-sm font-normal text-black md:text-base">
+                              {item.label}
+                            </span>
+                            <span
+                              className={cn(
+                                "inline-flex h-9 w-9 shrink-0 items-center justify-center text-neutral-400 transition-transform",
+                                isOpen && "rotate-180",
+                              )}
+                              aria-hidden
+                            >
+                              <svg
+                                className="h-5 w-5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M6 9L12 15L18 9"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        )}
                         {isOpen ? (
-                          <div
+                          <section
                             id={`tailored-panel-${item.id}`}
-                            role="region"
                             aria-labelledby={`tailored-trigger-${item.id}`}
                             className="border-t border-neutral-100 px-4 pb-4 pt-0"
                           >
                             <p className="pt-3 text-sm leading-7 text-neutral-600">
                               {item.body}
                             </p>
-                          </div>
+                          </section>
                         ) : null}
                       </div>
                     </li>
@@ -144,7 +195,7 @@ export default function TailoredIndustriesSection() {
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  priority={false}
+                  loading="lazy"
                 />
               </div>
             </ScrollReveal>

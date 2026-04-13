@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# AutoDate (Smart Fleet)
+# This file is intentionally minimal.

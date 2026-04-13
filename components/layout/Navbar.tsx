@@ -30,7 +30,13 @@ export default function Navbar() {
           href="/"
           className="z-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30"
         >
-          <Image src="/logo.svg" alt="AutoDate" width={120} height={120} />
+          <Image
+            src="/logo.svg"
+            alt="AutoDate"
+            width={120}
+            height={120}
+            priority
+          />
         </Link>
 
         <nav

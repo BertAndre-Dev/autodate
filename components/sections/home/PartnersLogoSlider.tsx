@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SectionWrapper from "@/components/ui/SectionWrapper";
 import styles from "./partners-logo-slider.module.css";
 
 type Logo = { fileName: string; alt: string; width?: number; height?: number };
@@ -18,10 +17,10 @@ function toPublicSrc(fileName: string) {
   return encodeURI(`/slider/${fileName}`);
 }
 
-function LogoRow() {
+function LogoRow({ priority }: Readonly<{ priority?: boolean }>) {
   return (
     <div className={styles.row}>
-      {logos.map((logo) => (
+      {logos.map((logo, idx) => (
         <div key={logo.fileName} className={styles.logoWrap}>
           <Image
             src={toPublicSrc(logo.fileName)}
@@ -29,6 +28,8 @@ function LogoRow() {
             width={logo.width ?? 190}
             height={logo.height ?? 56}
             className={styles.logo}
+            priority={priority && idx < 3}
+            loading={priority && idx < 3 ? "eager" : "lazy"}
           />
         </div>
       ))}
@@ -43,10 +44,11 @@ function LogoRowClone() {
         <div key={`clone-${logo.fileName}`} className={styles.logoWrap}>
           <Image
             src={toPublicSrc(logo.fileName)}
-            alt=""
+            alt={logo.alt}
             width={logo.width ?? 190}
             height={logo.height ?? 56}
             className={styles.logo}
+            loading="lazy"
           />
         </div>
       ))}
@@ -64,7 +66,7 @@ export default function PartnersLogoSlider() {
 
         <div className={styles.viewport}>
           <div className={styles.track}>
-            <LogoRow />
+            <LogoRow priority />
             <LogoRowClone />
             {/* Third copy prevents gap when logos don't fill full width */}
             <LogoRow />

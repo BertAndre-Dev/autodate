@@ -9,13 +9,45 @@ import Image from "next/image";
 function ServiceIcon({ iconKey }: { iconKey: string }) {
   switch (iconKey) {
     case "operations":
-      return <Image src="/operations.svg" alt="Operations" width={24} height={24} />;
+      return (
+        <Image
+          src="/operations.svg"
+          alt="Operations"
+          width={24}
+          height={24}
+          loading="lazy"
+        />
+      );
     case "unified":
-      return <Image src="/unified.svg" alt="Unified" width={24} height={24} />;
+      return (
+        <Image
+          src="/unified.svg"
+          alt="Unified"
+          width={24}
+          height={24}
+          loading="lazy"
+        />
+      );
     case "risk":
-      return <Image src="/risk.svg" alt="Risk" width={24} height={24} />;
+      return (
+        <Image
+          src="/risk.svg"
+          alt="Risk"
+          width={24}
+          height={24}
+          loading="lazy"
+        />
+      );
     case "integration":
-      return <Image src="/integration.svg" alt="Integration" width={24} height={24} />;
+      return (
+        <Image
+          src="/integration.svg"
+          alt="Integration"
+          width={24}
+          height={24}
+          loading="lazy"
+        />
+      );
     default:
       return null;
   }

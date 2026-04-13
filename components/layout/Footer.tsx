@@ -7,7 +7,13 @@ export default function Footer() {
     <footer className="border-t border-foreground/10 bg-[#1A1A1A]">
       <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:px-8 lg:px-10 xl:px-0">
         <div className="flex flex-col items-start mb-10">
-          <Image src="/logo.svg" alt="AutoDate" width={120} height={120} />
+          <Image
+            src="/logo.svg"
+            alt="AutoDate"
+            width={120}
+            height={120}
+            loading="lazy"
+          />
           <p className="text-base text-white">{siteConfig.tagline}</p>
         </div>
 
@@ -41,6 +47,7 @@ export default function Footer() {
                       alt={socialLink.label}
                       width={20}
                       height={20}
+                      loading="lazy"
                     />
                   </Link>
                 ))}
