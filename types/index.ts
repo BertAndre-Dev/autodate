@@ -61,3 +61,20 @@ export interface TailoredIndustryItem {
   imageAlt: string;
   body: string;
 }
+
+export interface BlogSection {
+  heading?: string;
+  paragraphs: string[];
+  list?: string[];
+}
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  coverImage: string;
+  coverImageAlt: string;
+  publishedAt: string;
+  author: string;
+  sections: BlogSection[];
+}

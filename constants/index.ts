@@ -1,4 +1,5 @@
 import type {
+  BlogPost,
   FooterColumn,
   HeroProps,
   HomeHeroLanding,
@@ -21,6 +22,7 @@ export const navLinks: NavLink[] = [
   { href: "/#about", label: "About us" },
   { href: "/#services", label: "Services" },
   { href: "/#solutions", label: "Solutions" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export const navContactCta = {
@@ -64,6 +66,7 @@ export const footerColumns: FooterColumn[] = [
       { href: "/", label: "Home" },
       { href: "/#about", label: "About Us" },
       { href: "/#services", label: "Services" },
+      { href: "/blog", label: "Blog" },
       { href: "/#contact", label: "Contact Us" },
     ],
   },
@@ -431,4 +434,82 @@ export const contact = {
       "Please try again in a moment. If the issue continues, contact us directly.",
   },
 } as const;
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "can-technology-make-fleet-operations-more-sustainable",
+    title: "Can Technology Make Fleet Operations More Sustainable?",
+    excerpt:
+      "Sustainability for fleets starts with how operations are managed every day, not only with electric vehicles. Here's how technology drives efficiency, reduces waste, and supports long-term growth.",
+    coverImage: "/blog/blog.jpeg",
+    coverImageAlt:
+      "Fleet management dashboard on a laptop beside white commercial trucks, a city skyline, and wind turbines.",
+    publishedAt: "2026-07-13",
+    author: "Autodate SmartFleet",
+    sections: [
+      {
+        paragraphs: [
+          "Sustainability has become a priority for businesses across industries. For fleet operators, however, the conversation often begins and ends with electric vehicles. While transitioning to EVs is an important step for some organizations, it's not the only or even the most immediate way to build a more sustainable fleet.",
+          "In reality, sustainability starts with how a fleet is managed every day. From vehicle utilization and maintenance to route planning and driver behaviour, technology is helping businesses operate more efficiently while reducing waste, lowering costs, and making better use of resources.",
+        ],
+      },
+      {
+        heading: "Sustainability Is About Efficiency",
+        paragraphs: [
+          "A sustainable fleet isn't simply one with newer vehicles. It's a fleet that maximizes every trip, minimizes unnecessary resource consumption, and keeps vehicles operating at their best.",
+          "Without the right tools, fleet managers often rely on manual processes, scattered records, and delayed reporting. This can lead to unnecessary trips, vehicles sitting idle for long periods, missed maintenance schedules, and poor visibility into daily operations.",
+          "These inefficiencies don't just affect productivity, they also create avoidable waste. Technology helps eliminate many of these challenges by providing real-time insights that enable faster, smarter decisions.",
+        ],
+      },
+      {
+        heading: "Better Decisions Through Better Data",
+        paragraphs: [
+          "Every vehicle generates valuable operational data. When collected and analyzed effectively, that information becomes a powerful tool for improving fleet performance.",
+          "Fleet technology can help organizations answer important questions such as:",
+        ],
+        list: [
+          "Which vehicles are being underutilized?",
+          "Are maintenance schedules being followed?",
+          "Where are unnecessary delays occurring?",
+          "Which routes consistently take longer than expected?",
+          "How can resources be allocated more efficiently?",
+        ],
+      },
+      {
+        paragraphs: [
+          "Instead of reacting to problems after they occur, businesses can identify trends early and make proactive decisions that improve operations over time.",
+        ],
+      },
+      {
+        heading: "Small Improvements Create Big Results",
+        paragraphs: [
+          "Sustainability isn't always driven by dramatic changes. Often, it's the result of many small improvements made consistently.",
+          "Optimizing routes can reduce unnecessary travel. Preventive maintenance can extend vehicle life and reduce unexpected breakdowns. Monitoring fleet performance can help managers identify opportunities to improve utilization and reduce operational waste.",
+          "Individually, these improvements may seem modest. Together, they can significantly enhance both operational efficiency and long-term sustainability.",
+        ],
+      },
+      {
+        heading: "Technology Supports Long-Term Growth",
+        paragraphs: [
+          "As businesses expand, managing a fleet becomes increasingly complex. More vehicles, more drivers, and more operational data require systems that can scale without adding unnecessary administrative burden.",
+          "Digital fleet management platforms centralize information, streamline workflows, and provide the visibility needed to make informed decisions across the entire operation.",
+          "This allows businesses to spend less time managing paperwork and more time focusing on performance, customer service, and strategic growth.",
+        ],
+      },
+      {
+        heading: "A Smarter Path to Sustainability",
+        paragraphs: [
+          "Building a sustainable fleet doesn't always require replacing every vehicle or making major capital investments overnight.",
+          "Sometimes, the most meaningful progress begins with better visibility, smarter planning, and data-driven decision-making.",
+          "Technology empowers fleet managers to reduce waste, improve efficiency, and build operations that are both resilient and prepared for the future.",
+          "At Autodate SmartFleet, we believe sustainability is achieved through smarter operations. By helping organizations gain greater control over their fleets, we enable them to improve performance, make better use of their resources, and move confidently toward a more sustainable future.",
+        ],
+      },
+    ],
+  },
+];
+
+export function getBlogPostBySlug(slug: string): BlogPost | undefined {
+  return blogPosts.find((post) => post.slug === slug);
+}
 

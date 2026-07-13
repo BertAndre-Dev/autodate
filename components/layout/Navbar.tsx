@@ -11,6 +11,12 @@ import Image from "next/image";
 const ctaClass =
   "inline-flex h-10 items-center justify-center rounded-lg bg-[#B71C1C] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#B71C1C]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40";
 
+function isNavLinkActive(pathname: string, href: string): boolean {
+  if (href === "/") return pathname === "/";
+  if (href.includes("#")) return false;
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function Navbar() {
   const pathname = usePathname();
   const scrollY = useScrollPosition();
@@ -44,7 +50,7 @@ export default function Navbar() {
           aria-label={uiStrings.mobileNavLabel}
         >
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = isNavLinkActive(pathname, link.href);
 
             return (
               <Link
@@ -97,7 +103,7 @@ export default function Navbar() {
             className="flex flex-col gap-1"
           >
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = isNavLinkActive(pathname, link.href);
 
               return (
                 <Link
