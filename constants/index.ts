@@ -241,7 +241,7 @@ export const homeTailoredSection = {
   pill: "Industry Fleet Solutions",
   title: "Tailored Solution For Every Industry",
   description:
-    "We're not just another energy company. SAAIR Energy is Africa's integrated energy powerhouse, bridging conventional and renewable systems with advanced ",
+    "Our platform is built to adapt across industries, delivering customized mobility intelligence solutions that address unique operational challenges. ",
   heroImageSrc: "/tailored/logistics.svg",
   heroImageAlt:
     "Fleet and logistics imagery representing tailored industry solutions.",
