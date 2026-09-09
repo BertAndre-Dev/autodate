@@ -94,7 +94,7 @@ export const footerColumns: FooterColumn[] = [
 
     ],
     socialLinks: [
-      { href: "/contact", label: "Facebook" , icon: "/facebook.svg" },
+      // { href: "/contact", label: "Facebook" , icon: "/facebook.svg" },
       { href: "/https://www.instagram.com/autodatesmartfleet?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" , icon: "/instagram.svg" },
       { href: "/https://www.linkedin.com/company/autodate-smart-fleet/", label: "LinkedIn" , icon: "/linkedin.svg" },
     ],
