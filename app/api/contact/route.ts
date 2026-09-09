@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { contact } from "@/constants";
+import { sendContactEmail } from "@/lib/send-contact-email";
 import {
   isValidEmail,
   normalizeWhitespace,
@@ -63,26 +64,15 @@ export async function POST(req: NextRequest) {
     details: sanitizeText(detailsTrimmed, detailsMaxLength),
   };
 
-  const webhookUrl = process.env.CONTACT_QUOTE_WEBHOOK_URL;
-
-  if (!webhookUrl) {
+  if (!process.env.SENDGRID_API_KEY) {
     return jsonError(contact.form.fallbackApiMessage, 503);
   }
 
   try {
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(sanitizedPayload),
-    });
-
-    if (!res.ok) {
-      return jsonError(contact.form.fallbackApiMessage, 503);
-    }
-
+    await sendContactEmail(sanitizedPayload);
     return NextResponse.json({ ok: true }, { status: 200 });
-  } catch {
+  } catch (error) {
+    console.error("Contact email failed:", error);
     return jsonError(contact.form.fallbackApiMessage, 503);
   }
 }
-
