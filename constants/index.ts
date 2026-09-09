@@ -421,8 +421,7 @@ export const contact = {
     submitLabel: "Submit request",
     submittingLabel: "Submitting...",
     successTitle: "Request received",
-    successMessage:
-      "Thanks—your quote request has been received. We’ll follow up shortly.",
+    successMessage: "Thanks, your request has been received. We'll follow up shortly.",
     apiErrorTitle: "Could not submit request",
     fieldErrors: {
       required: "This field is required.",
