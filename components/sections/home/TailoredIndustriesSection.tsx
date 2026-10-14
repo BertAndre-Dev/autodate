@@ -2,204 +2,148 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import ScrollReveal from "@/components/motion/ScrollReveal";
 import { cn } from "@/lib/utils";
 import {
   homeTailoredIndustries,
   homeTailoredSection,
 } from "@/constants";
+import type { TailoredIndustryItem } from "@/types";
+
+function IndustryList({
+  items,
+  openId,
+  onToggle,
+}: {
+  items: readonly TailoredIndustryItem[];
+  openId: string | null;
+  onToggle: (id: string) => void;
+}) {
+  return (
+    <ul className="flex flex-col gap-3">
+      {items.map((item) => {
+        const isOpen = openId === item.id;
+
+        return (
+          <li key={item.id}>
+            <button
+              type="button"
+              className="flex w-full items-center gap-4 rounded-xl bg-[#2A2A2A] px-4 py-4 text-left transition-colors hover:bg-[#333333] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]"
+              onClick={() => onToggle(item.id)}
+              aria-expanded={isOpen}
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#B71C1C]/15">
+                <Image
+                  src={item.iconSrc}
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 object-contain"
+                />
+              </span>
+              <span className="min-w-0 flex-1 text-sm font-medium text-white md:text-base">
+                {item.label}
+              </span>
+              <span
+                className={cn(
+                  "inline-flex h-8 w-8 shrink-0 items-center justify-center text-white/70 transition-transform",
+                  isOpen && "rotate-180",
+                )}
+                aria-hidden
+              >
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
+            {isOpen ? (
+              <p className="px-4 pt-3 text-sm leading-6 text-white/70">
+                {item.body}
+              </p>
+            ) : null}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function IndustryImage({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}) {
+  return (
+    <div className="relative min-h-[260px] overflow-hidden rounded-2xl bg-neutral-800 sm:min-h-[320px] lg:min-h-full">
+      <Image
+        key={src}
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes="(min-width: 1024px) 50vw, 100vw"
+      />
+    </div>
+  );
+}
 
 export default function TailoredIndustriesSection() {
   const [openId, setOpenId] = useState<string | null>(null);
+  const topIndustries = homeTailoredIndustries.slice(0, 3);
+  const bottomIndustries = homeTailoredIndustries.slice(3);
 
-  const openIndustry = openId
-    ? homeTailoredIndustries.find((item) => item.id === openId)
-    : undefined;
+  const openIndustry = homeTailoredIndustries.find((item) => item.id === openId);
+  const topImage = topIndustries.some((item) => item.id === openId)
+    ? openIndustry
+    : topIndustries[0];
+  const bottomImage = bottomIndustries.some((item) => item.id === openId)
+    ? openIndustry
+    : bottomIndustries[0];
 
-  const heroSrc =
-    openIndustry?.panelImageSrc ?? homeTailoredSection.heroImageSrc;
-  const heroAlt = openIndustry?.imageAlt ?? homeTailoredSection.heroImageAlt;
+  function toggle(id: string) {
+    setOpenId((current) => (current === id ? null : id));
+  }
 
   return (
     <section
       id="solutions"
-      className="relative scroll-mt-24 overflow-hidden bg-neutral-50 py-16 md:py-20"
+      className="scroll-mt-24 bg-[#141414] py-16 text-white md:py-20"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        aria-hidden="true"
-      >
-        <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-neutral-200/60 blur-3xl" />
-        <div className="absolute -bottom-32 right-1/4 h-48 w-48 rounded-full bg-neutral-200/40 blur-3xl" />
-      </div>
+      <div className="mx-auto grid w-full max-w-6xl gap-4 px-4 sm:px-6 md:px-8 lg:grid-cols-2 lg:px-10 xl:px-14">
+        <div className="flex flex-col justify-center gap-6 py-2 lg:pr-4">
+          <h2 className="max-w-md text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+            {homeTailoredSection.title}
+          </h2>
+          <IndustryList
+            items={topIndustries}
+            openId={openId}
+            onToggle={toggle}
+          />
+        </div>
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
-        <div className="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:items-start lg:gap-14">
-          <div className="order-2 flex flex-col gap-8 lg:order-1">
-            <div>
-              <ScrollReveal>
-                <span className="inline-flex rounded-full bg-[#EFEFEF] px-4 py-2 text-xs md:text-base font-normal text-[#4C4C4C] ring-1 ring-neutral-200">
-                  {homeTailoredSection.pill}
-                </span>
-              </ScrollReveal>
-              <ScrollReveal delayMs={60}>
-                <h2 className="mt-5 text-balance text-2xl md:text-3xl font-semibold tracking-tight text-black">
-                  {homeTailoredSection.title}
-                </h2>
-              </ScrollReveal>
-              <ScrollReveal delayMs={100}>
-                <p className="mt-4 lg:max-w-xl text-pretty text-base leading-7 text-[#4C4C4C]">
-                  {homeTailoredSection.description}
-                </p>
-              </ScrollReveal>
-            </div>
+        <IndustryImage
+          src={topImage?.panelImageSrc ?? homeTailoredSection.heroImageSrc}
+          alt={topImage?.imageAlt ?? homeTailoredSection.heroImageAlt}
+        />
 
-            <ul className="flex flex-col gap-3">
-              {homeTailoredIndustries.map((item, idx) => {
-                const isOpen = openId === item.id;
+        <IndustryImage
+          src={bottomImage?.panelImageSrc ?? "/tailored/lady-drivinng.png"}
+          alt={bottomImage?.imageAlt ?? "Driver and passenger in a car."}
+        />
 
-                return (
-                  <ScrollReveal key={item.id} delayMs={idx * 40}>
-                    <li>
-                      <div
-                        className={cn(
-                          "overflow-hidden rounded-xl bg-white shadow-md shadow-neutral-900/5 ring-1 ring-neutral-200/80 transition-shadow",
-                          isOpen && "ring-2 ring-[#B71C1C]",
-                        )}
-                      >
-                        {isOpen ? (
-                          <button
-                            type="button"
-                            className="flex w-full items-center gap-4 px-4 py-4 text-left"
-                            onClick={() =>
-                              setOpenId((prev) =>
-                                prev === item.id ? null : item.id,
-                              )
-                            }
-                            aria-expanded="true"
-                            aria-controls={`tailored-panel-${item.id}`}
-                            id={`tailored-trigger-${item.id}`}
-                          >
-                          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#D3151014]">
-                            <Image
-                              src={item.iconSrc}
-                              alt={`${item.label} icon`}
-                              width={24}
-                              height={24}
-                              className="h-7 w-7 object-contain"
-                              loading="lazy"
-                            />
-                          </span>
-                          <span className="min-w-0 flex-1 text-sm font-normal text-black md:text-base">
-                            {item.label}
-                          </span>
-                          <span
-                            className={cn(
-                              "inline-flex h-9 w-9 shrink-0 items-center justify-center text-neutral-400 transition-transform",
-                              isOpen && "rotate-180",
-                            )}
-                            aria-hidden
-                          >
-                            <svg
-                              className="h-5 w-5"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M6 9L12 15L18 9"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          </span>
-                          </button>
-                        ) : (
-                          <button
-                            type="button"
-                            className="flex w-full items-center gap-4 px-4 py-4 text-left"
-                            onClick={() =>
-                              setOpenId((prev) =>
-                                prev === item.id ? null : item.id,
-                              )
-                            }
-                            aria-expanded="false"
-                            aria-controls={`tailored-panel-${item.id}`}
-                            id={`tailored-trigger-${item.id}`}
-                          >
-                            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#D3151014]">
-                              <Image
-                                src={item.iconSrc}
-                                alt={`${item.label} icon`}
-                                width={24}
-                                height={24}
-                                className="h-7 w-7 object-contain"
-                                loading="lazy"
-                              />
-                            </span>
-                            <span className="min-w-0 flex-1 text-sm font-normal text-black md:text-base">
-                              {item.label}
-                            </span>
-                            <span
-                              className={cn(
-                                "inline-flex h-9 w-9 shrink-0 items-center justify-center text-neutral-400 transition-transform",
-                                isOpen && "rotate-180",
-                              )}
-                              aria-hidden
-                            >
-                              <svg
-                                className="h-5 w-5"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M6 9L12 15L18 9"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </span>
-                          </button>
-                        )}
-                        {isOpen ? (
-                          <section
-                            id={`tailored-panel-${item.id}`}
-                            aria-labelledby={`tailored-trigger-${item.id}`}
-                            className="border-t border-neutral-100 px-4 pb-4 pt-0"
-                          >
-                            <p className="pt-3 text-sm leading-7 text-neutral-600">
-                              {item.body}
-                            </p>
-                          </section>
-                        ) : null}
-                      </div>
-                    </li>
-                  </ScrollReveal>
-                );
-              })}
-            </ul>
-          </div>
-
-          <div className="order-1 lg:order-2">
-            <ScrollReveal>
-              <div className="relative mx-auto h-[300px] lg:h-[850px] w-full max-w-md overflow-hidden rounded-lg bg-neutral-200 shadow-lg shadow-neutral-900/10 ring-1 ring-neutral-200/80 lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
-                <Image
-                  key={heroSrc}
-                  src={heroSrc}
-                  alt={heroAlt}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  loading="lazy"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
+        <div className="flex flex-col justify-center py-2 lg:pl-4">
+          <IndustryList
+            items={bottomIndustries}
+            openId={openId}
+            onToggle={toggle}
+          />
         </div>
       </div>
     </section>

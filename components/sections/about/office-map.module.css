@@ -1,0 +1,14 @@
+.frame :global(.leaflet-container) {
+  z-index: 0;
+  isolation: isolate;
+}
+
+.frame :global(img) {
+  max-width: none;
+  max-height: none;
+}
+
+.frame :global(.office-pin) {
+  background: none;
+  border: none;
+}

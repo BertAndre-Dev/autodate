@@ -58,7 +58,7 @@ function LogoRowClone() {
 
 export default function PartnersLogoSlider() {
   return (
-    <section className="py-20 md:py-28 bg-white w-full overflow-hidden">
+    <section className="mx-auto py-20 md:py-28 bg-white w-full overflow-hidden">
       <div className="flex flex-col items-center gap-6">
           <span className="inline-flex rounded-full bg-[#EFEFEF] px-6 py-2 text-xs font-semibold text-neutral-700 ring-1 ring-neutral-200">
           Trusted Fleet Solutions For

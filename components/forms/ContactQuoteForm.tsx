@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import MotionSubmitButton from "@/components/motion/MotionSubmitButton";
 import { contact } from "@/constants";
@@ -40,6 +40,28 @@ export default function ContactQuoteForm() {
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    const applyDemoEmail = (email: string) => {
+      setValues((current) => ({ ...current, email }));
+    };
+
+    const stored = sessionStorage.getItem("demo-email");
+    if (stored) {
+      sessionStorage.removeItem("demo-email");
+      applyDemoEmail(stored);
+    }
+
+    const onDemoEmail = (event: Event) => {
+      const email = (event as CustomEvent<string>).detail;
+      if (typeof email !== "string" || !email) return;
+      sessionStorage.removeItem("demo-email");
+      applyDemoEmail(email);
+    };
+
+    window.addEventListener("demo-email", onDemoEmail);
+    return () => window.removeEventListener("demo-email", onDemoEmail);
+  }, []);
 
   const validate = (nextValues: QuoteFormValues): FieldErrors => {
     const errors: FieldErrors = {};

@@ -1,42 +1,54 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import type { FormEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { homeHeroLanding } from "@/constants";
-import { cn } from "@/lib/utils";
+import { isValidEmail } from "@/lib/utils";
 
-function TopoPattern({ className }: { className?: string }) {
+function EdgeContours() {
   return (
     <div
-      className={cn(
-        "pointer-events-none absolute inset-0 overflow-hidden",
-        className,
-      )}
+      className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden
     >
       <svg
-        className="h-full w-full text-neutral-300/35"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
+        className="absolute -left-8 top-0 h-[80%] w-40 text-[#E4E4E1] sm:w-52"
+        viewBox="0 0 180 640"
+        fill="none"
       >
-        <defs>
-          <pattern
-            id="hero-topo"
-            width="120"
-            height="120"
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="0.7"
-              d="M0 60 Q30 40 60 60 T120 60 M0 30 Q40 10 80 30 T160 30 M0 90 Q35 70 70 90 T140 90"
-            />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#hero-topo)" />
+        <path
+          d="M20 20c40 60 8 110 46 170s-8 100 28 160"
+          stroke="currentColor"
+          strokeWidth="1.1"
+        />
+        <path
+          d="M4 80c50 40 12 120 54 180"
+          stroke="currentColor"
+          strokeWidth="1.1"
+        />
+        <path
+          d="M48 0c18 70-6 130 22 200"
+          stroke="currentColor"
+          strokeWidth="1.1"
+        />
+      </svg>
+      <svg
+        className="absolute -right-10 top-8 h-[70%] w-44 text-[#E4E4E1] sm:w-56"
+        viewBox="0 0 200 640"
+        fill="none"
+      >
+        <path
+          d="M180 30c-50 50-8 120-48 180s10 110-22 180"
+          stroke="currentColor"
+          strokeWidth="1.1"
+        />
+        <path
+          d="M200 100c-60 40-16 130-62 190"
+          stroke="currentColor"
+          strokeWidth="1.1"
+        />
       </svg>
     </div>
   );
@@ -47,7 +59,7 @@ type TwState = { wi: number; len: number; del: boolean };
 function useTypewriter(
   words: readonly string[],
   enabled: boolean,
-): { text: string; showCursor: boolean } {
+): { text: string; word: string; showCursor: boolean } {
   const [s, setS] = useState<TwState>({ wi: 0, len: 0, del: false });
 
   useEffect(() => {
@@ -73,117 +85,144 @@ function useTypewriter(
     return () => window.clearTimeout(t);
   }, [enabled, s, words]);
 
-  if (!enabled) return { text: words[0] ?? "", showCursor: true };
+  if (!enabled) {
+    const word = words[0] ?? "";
+    return { text: word, word, showCursor: true };
+  }
 
   const word = words[s.wi % words.length] ?? "";
-  return { text: word.slice(0, s.len), showCursor: true };
+  return { text: word.slice(0, s.len), word, showCursor: true };
 }
 
 export default function HomeHero() {
   const reducedMotion = useReducedMotion();
   const animateTitle = !reducedMotion;
-  const { text: typed, showCursor } = useTypewriter(
+  const { text: typed, word, showCursor } = useTypewriter(
     homeHeroLanding.rotatingWords,
     animateTitle,
   );
+  const longWord = word.length > 18;
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState<string | null>(null);
+
+  function onBookDemo(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const value = email.trim();
+    if (!isValidEmail(value)) {
+      setEmailError("Enter a valid email address.");
+      return;
+    }
+    setEmailError(null);
+    const normalized = value.toLowerCase();
+    sessionStorage.setItem("demo-email", normalized);
+    window.dispatchEvent(
+      new CustomEvent("demo-email", { detail: normalized }),
+    );
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }
 
   return (
-    <section
-      id="about"
-      className="relative scroll-mt-24 overflow-hidden bg-white pb-16 pt-10 md:pb-20 md:pt-14 lg:pt-16"
-    >
-      <TopoPattern />
+    <section className="relative bg-white pb-16 pt-10 md:pb-20 md:pt-14 lg:pt-16">
+      <EdgeContours />
 
       <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-0">
-
-          {/* ── Text column ── */}
-          <div className="flex flex-col gap-6">
-            <span className="inline-flex w-fit rounded-full bg-neutral-100 px-4 py-2 text-xs font-semibold text-neutral-700 ring-1 ring-neutral-200">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6">
+          <div className="flex min-w-0 flex-col">
+            <span className="inline-flex w-fit rounded-full bg-[#F3F4F6] px-5 py-2 text-sm font-medium text-[#6B7280]">
               {homeHeroLanding.pill}
             </span>
 
-            <h1 className="text-balance text-3xl font-semibold tracking-tight text-black sm:text-4xl md:text-5xl lg:text-[2.65rem] lg:leading-[1.12]">
-              <span className="block text-black">{homeHeroLanding.titleLine1}</span>
-              <span className="mt-1 block sm:mt-1.5">
-                <span className="text-black">{homeHeroLanding.titleLine2Prefix}</span>
-                <span className="text-[#B71C1C]">{typed}</span>
-                <motion.span
-                  className="ml-0.5 inline-block w-[2px] translate-y-0.5 bg-[#B71C1C] align-middle"
-                  animate={
-                    animateTitle && showCursor
-                      ? { opacity: [1, 0, 1] }
-                      : { opacity: 1 }
-                  }
-                  transition={
-                    animateTitle
-                      ? { duration: 0.9, repeat: Infinity, ease: "easeInOut" }
-                      : undefined
-                  }
-                  style={{ height: "0.95em" }}
-                  aria-hidden
-                />
-              </span>
+            <h1 className="mt-6 text-[2.35rem] font-bold leading-[1.05] tracking-tight text-black sm:text-5xl lg:text-[3.35rem]">
+              <span className="block">{homeHeroLanding.titleLine1}</span>
+              <span className="mt-1 block">{homeHeroLanding.titleLine2}</span>
             </h1>
 
-            <p className="max-w-lg text-pretty text-base leading-7 text-[#4C4C4C] md:text-lg md:leading-8">
+            <p
+              className={`mt-3 w-full max-w-full whitespace-normal wrap-break-word font-bold leading-[1.05] tracking-tight text-[#B71C1C] ${
+                longWord
+                  ? "text-[1.65rem] sm:text-[2rem] lg:text-[2.55rem]"
+                  : "text-[2.15rem] sm:text-5xl lg:text-[3.15rem]"
+              }`}
+              aria-live="polite"
+            >
+              <span>{typed}</span>
+              <motion.span
+                className="ml-1 inline-block w-[3px] translate-y-[0.08em] bg-[#B71C1C] align-middle"
+                animate={
+                  animateTitle && showCursor
+                    ? { opacity: [1, 0, 1] }
+                    : { opacity: 1 }
+                }
+                transition={
+                  animateTitle
+                    ? { duration: 0.9, repeat: Infinity, ease: "easeInOut" }
+                    : undefined
+                }
+                style={{ height: "0.82em" }}
+                aria-hidden
+              />
+            </p>
+
+            <p className="mt-6 max-w-md text-base leading-7 text-[#4C4C4C] sm:text-lg">
               {homeHeroLanding.description}
             </p>
 
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
-              <div className="flex items-center gap-3">
-                <Image
-                  src="/mission.svg"
-                  alt="Mission"
-                  width={36}
-                  height={36}
-                  className="shrink-0 mt-0.5"
-                  priority
+            <form
+              className="mt-8 max-w-md"
+              onSubmit={onBookDemo}
+              noValidate
+            >
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <label className="sr-only" htmlFor="hero-email">
+                  {homeHeroLanding.emailPlaceholder}
+                </label>
+                <input
+                  id="hero-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(event) => {
+                    setEmail(event.target.value);
+                    if (emailError) setEmailError(null);
+                  }}
+                  placeholder={homeHeroLanding.emailPlaceholder}
+                  aria-invalid={emailError ? true : undefined}
+                  aria-describedby={emailError ? "hero-email-error" : undefined}
+                  className="h-12 w-full rounded-lg border border-[#B71C1C] bg-white px-4 text-sm text-black outline-none placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30 sm:flex-1"
                 />
-                <div>
-                  <p className="text-base font-bold text-black md:text-[18px]">
-                    {homeHeroLanding.mission.title}
-                  </p>
-                  <p className="mt-1 text-sm leading-6 text-[#4C4C4C]">
-                    {homeHeroLanding.mission.body}
-                  </p>
-                </div>
+                <button
+                  type="submit"
+                  className="inline-flex h-12 shrink-0 items-center justify-center rounded-lg bg-[#B71C1C] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#9E1818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
+                >
+                  {homeHeroLanding.ctaLabel}
+                </button>
               </div>
-              <div className="flex items-center gap-3">
-                <Image
-                  src="/vission.svg"
-                  alt="Vision"
-                  width={36}
-                  height={36}
-                  className="shrink-0 mt-0.5"
-                  priority
-                />
-                <div>
-                  <p className="text-base font-bold text-black md:text-[18px]">
-                    {homeHeroLanding.vision.title}
-                  </p>
-                  <p className="mt-1 text-sm leading-6 text-[#4C4C4C]">
-                    {homeHeroLanding.vision.body}
-                  </p>
-                </div>
-              </div>
-            </div>
+              {emailError ? (
+                <p id="hero-email-error" className="mt-2 text-sm text-[#B71C1C]">
+                  {emailError}
+                </p>
+              ) : null}
+            </form>
 
-            <div>
-              <Link
-                href={homeHeroLanding.ctaHref}
-                className="inline-flex h-11 w-full items-center justify-center rounded-lg bg-[#B71C1C] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#B71C1C]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40 sm:w-auto sm:min-w-[180px]"
-              >
-                {homeHeroLanding.ctaLabel}
-              </Link>
-            </div>
+            <dl className="mt-8 grid max-w-md grid-cols-3 gap-4">
+              {homeHeroLanding.stats.map((stat) => (
+                <div key={stat.label}>
+                  <dd className="text-2xl font-bold text-[#B71C1C] sm:text-[1.7rem]">
+                    {stat.value}
+                  </dd>
+                  <dt className="mt-1 text-sm leading-5 text-[#6B7280]">
+                    {stat.label}
+                  </dt>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          {/* ── Image column — hidden on mobile/tablet, visible lg+ ── */}
           <div className="hidden lg:block">
             <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
               <div className="relative aspect-[4/5] min-h-[520px] w-full lg:aspect-[5/6]">
-                <div className="absolute right-0 top-10 z-[1] h-[78%] w-[68%] overflow-hidden rounded-3xl bg-neutral-100 shadow-lg ring-1 ring-neutral-200/80">
+                <div className="absolute right-0 top-10 z-[1] h-[100%] w-[68%] overflow-hidden rounded-3xl bg-neutral-100 shadow-lg ring-1 ring-neutral-200/80">
                   <Image
                     src={homeHeroLanding.mainImageSrc}
                     alt={homeHeroLanding.mainImageAlt}
@@ -194,7 +233,7 @@ export default function HomeHero() {
                   />
                 </div>
 
-                <div className="absolute bottom-7 right-70">
+                <div className="absolute xl:top-110 xl:right-65 top-100 right-58">
                   <Image
                     src="/circle.svg"
                     alt="Decorative circle accent"
@@ -206,7 +245,6 @@ export default function HomeHero() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
