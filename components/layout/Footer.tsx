@@ -105,7 +105,7 @@ export default function Footer() {
           </p>
           <button
             type="button"
-            onClick={openContact}
+            onClick={() => openContact()}
             className="mt-8 inline-flex h-12 min-w-[9.5rem] items-center justify-center rounded-xl bg-white px-8 text-sm font-semibold text-[#1A1A1A] transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:translate-y-px"
           >
             {footerCta.ctaLabel}
@@ -133,7 +133,7 @@ export default function Footer() {
                     <FooterItem
                       href={link.href}
                       label={link.label}
-                      onContact={openContact}
+                      onContact={() => openContact()}
                     />
                   </li>
                 ))}
