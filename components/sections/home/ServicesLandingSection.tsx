@@ -1,122 +1,75 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
-import ScrollReveal from "@/components/motion/ScrollReveal";
-import { cardWhileHover } from "@/lib/animations";
-import { homeServicesLanding, homeServicesLandingCards } from "@/constants";
+import Link from "next/link";
 import Image from "next/image";
-
-function ServiceIcon({ iconKey }: { iconKey: string }) {
-  switch (iconKey) {
-    case "operations":
-      return (
-        <Image
-          src="/operations.svg"
-          alt="Operations"
-          width={24}
-          height={24}
-          loading="lazy"
-        />
-      );
-    case "unified":
-      return (
-        <Image
-          src="/unified.svg"
-          alt="Unified"
-          width={24}
-          height={24}
-          loading="lazy"
-        />
-      );
-    case "risk":
-      return (
-        <Image
-          src="/risk.svg"
-          alt="Risk"
-          width={24}
-          height={24}
-          loading="lazy"
-        />
-      );
-    case "integration":
-      return (
-        <Image
-          src="/integration.svg"
-          alt="Integration"
-          width={24}
-          height={24}
-          loading="lazy"
-        />
-      );
-    default:
-      return null;
-  }
-}
+import { homeServicesLanding, homeServicesLandingCards } from "@/constants";
 
 export default function ServicesLandingSection() {
-  const reducedMotion = useReducedMotion();
-
   return (
     <section
       id="services"
-      className="relative scroll-mt-24 overflow-hidden bg-neutral-950 py-16 md:py-20"
+      className="relative scroll-mt-24 overflow-hidden bg-white py-20 md:py-28"
     >
       <div
-        className="absolute inset-0 bg-gradient-to-b from-neutral-900 via-neutral-950 to-black"
+        className="pointer-events-none absolute inset-0 opacity-60"
         aria-hidden="true"
+        style={{
+          backgroundImage:
+            "linear-gradient(118deg, transparent 46%, rgba(17,17,17,0.035) 49%, transparent 52%), linear-gradient(62deg, transparent 46%, rgba(17,17,17,0.03) 49%, transparent 52%)",
+          backgroundSize: "420px 420px",
+        }}
       />
 
       <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
-        <div className="flex flex-col items-center text-center">
-          <ScrollReveal>
-            <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white/90 ring-1 ring-white/10">
-              {homeServicesLanding.pill}
-            </span>
-          </ScrollReveal>
-          <ScrollReveal delayMs={80}>
-            <h2 className="mt-6 text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              {homeServicesLanding.title}
-            </h2>
-          </ScrollReveal>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm text-[#6B6B6B]">{homeServicesLanding.eyebrow}</p>
+          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-[#111111] sm:text-4xl md:text-[2.75rem] md:leading-[1.15]">
+            {homeServicesLanding.title}
+          </h2>
         </div>
 
-        {/* pt-6 gives space for the overlapping icon above each card */}
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch pt-6">
-          {homeServicesLandingCards.map((card) => {
-            const inner = (
-              <div className="relative flex h-full flex-col rounded-2xl bg-[#444444] px-4 pt-10 pb-7 ring-1 ring-white/5">
-                {/* Icon circle overlapping the top edge of the card */}
-                <div className="absolute -top-6 left-7">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md">
-                    <ServiceIcon iconKey={card.icon} />
-                  </div>
-                </div>
-
-                <h3 className="text-lg font-semibold text-white">
-                  {card.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-white/70">
-                  {card.description}
-                </p>
-              </div>
-            );
-
-            if (reducedMotion) {
-              return (
-                <ScrollReveal key={card.title} className="h-full">
-                  {inner}
-                </ScrollReveal>
-              );
-            }
-
-            return (
-              <ScrollReveal key={card.title} className="h-full">
-                <motion.div className="h-full" whileHover={cardWhileHover}>
-                  {inner}
-                </motion.div>
-              </ScrollReveal>
-            );
-          })}
+        <div className="mt-12 grid items-stretch gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
+          {homeServicesLandingCards.map((card) => (
+            <article
+              key={card.title}
+              className="flex h-full flex-col rounded-[20px] border border-[#E6E6E6] bg-white px-6 pb-6 pt-7 shadow-[0_16px_40px_-28px_rgba(17,17,17,0.45)] transition-colors duration-200 hover:border-[#B71C1C]"
+            >
+              <Image
+                src={card.icon}
+                alt=""
+                width={52}
+                height={52}
+                className="h-[52px] w-[52px]"
+              />
+              <h3 className="mt-5 text-lg font-semibold tracking-tight text-[#111111]">
+                {card.title}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-[#5C5C5C]">
+                {card.description}
+              </p>
+              {card.href ? (
+                <Link
+                  href={card.href}
+                  className="mt-auto inline-flex items-center gap-1.5 pt-8 text-sm font-medium text-[#B71C1C] transition-colors hover:text-[#8E1616] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
+                >
+                  Learn more
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              ) : null}
+            </article>
+          ))}
         </div>
       </div>
     </section>

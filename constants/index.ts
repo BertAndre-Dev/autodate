@@ -5,6 +5,8 @@ import type {
   HomeHeroLanding,
   NavLink,
   ServiceCard,
+  ServicesPageSection,
+  SolutionsPageContent,
   TailoredIndustryItem,
 } from "@/types";
 
@@ -19,9 +21,9 @@ export const siteConfig = {
 
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/#about", label: "About us" },
-  { href: "/#services", label: "Services" },
-  { href: "/#solutions", label: "Solutions" },
+  { href: "/about", label: "About us" },
+  { href: "/services", label: "Services" },
+  { href: "/solutions", label: "Solutions" },
   { href: "/blog", label: "Blog" },
 ];
 
@@ -32,41 +34,43 @@ export const navContactCta = {
 
 export const homeHeroLanding: HomeHeroLanding = {
   pill: "Intelligent Fleet Solutions",
-  titleLine1: "Intelligent fleet solutions",
-  titleLine2Prefix: "for ",
+  titleLine1: "Intelligent fleet",
+  titleLine2: "solutions for",
   rotatingWords: [
     "Smart Routing",
     "Maintenance",
     "Real-Time Optimization",
   ],
   description:
-    "A unified, data-driven platform designed to make transportation safer, smarter, and more efficient for individuals, businesses, while collaborating with government agencies.",
-  mission: {
-    title: "Mission",
-    body:
-      "To build a connected mobility ecosystem that leverages real-time data and automation to optimize transportation & empower smarter decision-making.",
-  },
-  vision: {
-    title: "Vision",
-    body:
-      "To become Africa’s leading intelligent mobility infrastructure where every vehicle is seamlessly connected through data and technology. ",
-  },
-  ctaLabel: "Get Started",
+    "One partner for every stage of your fleet, backed by the Smart Fleet software platform.",
+  emailPlaceholder: "Enter your email",
+  ctaLabel: "Book a Demo",
   ctaHref: "#contact",
+  stats: [
+    { value: "10+", label: "Years" },
+    { value: "6", label: "Industry Sectors" },
+    { value: "99%", label: "Client Satisfaction" },
+  ],
   mainImageSrc: "/main.svg",
   mainImageAlt: "White commercial van in a clean studio-style setting.",
-  insetTopLeftAlt: "Professional approaching a vehicle.",
-  insetBottomRightAlt: "Aerial view of highway interchange and traffic flow.",
 };
+
+export const footerCta = {
+  title: "Ready To See Your Whole Fleet In One View?",
+  description:
+    "Autodate is built for enterprise and medium-to-large fleet operators around the world.",
+  ctaLabel: "Contact Us",
+  ctaHref: "/#contact",
+  brandLine: "Smart Fleet Management",
+} as const;
 
 export const footerColumns: FooterColumn[] = [
   {
     title: "Quick Links",
     links: [
       { href: "/", label: "Home" },
-      { href: "/#about", label: "About Us" },
-      { href: "/#services", label: "Services" },
-      { href: "/blog", label: "Blog" },
+      { href: "/about", label: "About Us" },
+      { href: "/services", label: "Services" },
       { href: "/#contact", label: "Contact Us" },
     ],
   },
@@ -86,17 +90,26 @@ export const footerColumns: FooterColumn[] = [
     title: "Contact",
     links: [
       {
-        href: "/#contact",
+        href: "text",
         label: "20 Awudu Ekpheka Blvd, Lekki Phase 1, Lagos Nigeria.",
       },
-      { href: "/#contact", label: "inquiry@autodatefleet.com" },
-      { href: "/#contact", label: "+234  913 866 7927" },
-
+      {
+        href: "mailto:inquiry@autodatefleet.com",
+        label: "inquiry@autodatefleet.com",
+      },
+      { href: "tel:+2349138667927", label: "+234 913 866 7927" },
     ],
     socialLinks: [
-      // { href: "/contact", label: "Facebook" , icon: "/facebook.svg" },
-      { href: "/https://www.instagram.com/autodatesmartfleet?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" , icon: "/instagram.svg" },
-      { href: "/https://www.linkedin.com/company/autodate-smart-fleet/", label: "LinkedIn" , icon: "/linkedin.svg" },
+      {
+        href: "https://www.instagram.com/autodatesmartfleet?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        label: "Instagram",
+        icon: "/instagram.svg",
+      },
+      {
+        href: "https://www.linkedin.com/company/autodate-smart-fleet/",
+        label: "LinkedIn",
+        icon: "/linkedin.svg",
+      },
     ],
   },
 ];
@@ -129,11 +142,11 @@ export const hero: {
   about: {
     variant: "pageTitle",
     pageTitle: "About Us",
-    title: "Clarity, quality, and dependable delivery.",
+    title: "Support across the full vehicle lifecycle, not just after it is on the road.",
     subtitle:
-      "AutoDate partners with engineering and operations teams to turn requirements into durable outcomes.",
-    ctaLabel: "See our services",
-    ctaHref: "/services",
+      "Autodate is a technology-driven fleet and mobility company for global enterprises.",
+    ctaLabel: "Contact Us",
+    ctaHref: "/#contact",
   },
   services: {
     variant: "pageTitle",
@@ -205,37 +218,285 @@ export const homeIntelligentFleet = {
   ],
 } as const;
 
+export const fleetOfferCards = [
+  {
+    title: "Smart Fleet Platform",
+    description: "Real-time tracking, compliance and safety intelligence.",
+    imageSrc: "/fleet/car.png",
+  },
+  {
+    title: "Vehicle Purchase and Leasing:",
+    description: "Sourcing, procurement and registration support.",
+    imageSrc: "/fleet/car.png",
+  },
+  {
+    title: "Maintenance",
+    description: "Scheduled parts purchase, servicing and repair management.",
+    imageSrc: "/fleet/car.png",
+  },
+  {
+    title: "Compliance and Insurance",
+    description:
+      "Automated renewals, always-valid documents, and coverage that keeps pace with your fleet.",
+    imageSrc: "/fleet/car.png",
+  },
+] as const;
+
+export const problemSection = {
+  eyebrow: "Industry insiders with over 10 years of experience",
+  title: "The Problem We Solve",
+  paragraphs: [
+    "Most fleet operators still run on paper records, spreadsheets and informal incident reporting. Vehicles, drivers, compliance and maintenance data sit in different places, or nowhere at all. The result is poor visibility, avoidable costs, regulatory exposure and safety risk that could be managed ahead of time.",
+    "Our market survey found strong demand for one integrated partner instead of another point tool.",
+  ],
+  ctaLabel: "Read More",
+  ctaHref: "/about",
+  imageSrc: "/img.svg",
+  imageAlt: "Rows of vehicles parked in a fleet yard.",
+} as const;
+
 export const homeServicesLanding = {
-  pill: "Smart, Data-Driven Solution",
-  title: "Our Services",
+  eyebrow: "What we do",
+  title: "Everything your fleet needs, from purchase to disposal.",
 } as const;
 
 export const homeServicesLandingCards: ServiceCard[] = [
   {
+    title: "Smart Fleet Platform",
+    description:
+      "Real-time tracking, compliance and safety intelligence.",
+    icon: "/service/traffic-jam.svg",
+    href: "/services#platform",
+  },
+  {
+    title: "Vehicle Purchase and Leasing",
+    description:
+      "Sourcing and procurement support for fleet-grade vehicles. We handle registration, documentation and plate number processing on your behalf, so new vehicles are road-ready without the paperwork falling on your team.",
+    icon: "/service/traffic-jam.svg",
+    href: "/services#purchase",
+  },
+  {
+    title: "Maintenance",
+    description:
+      "Scheduled parts purchase, servicing and repair management. Keep every vehicle serviced on time and out of the workshop for as little time as possible, with maintenance planned and tracked through the Smart Fleet platform.",
+    icon: "/service/traffic-jam.svg",
+    href: "/services#maintenance",
+  },
+  {
+    title: "Compliance and Insurance",
+    description:
+      "Digitized compliance records with alerts at 30, 14 and 7 days before expiry, paired with insurance support for every vehicle in your fleet. Documents stay valid and coverage keeps pace as your fleet changes.",
+    icon: "/service/traffic-jam.svg",
+    href: "/services#compliance",
+  },
+  {
+    title: "Vehicle disposal and Auction",
+    description:
+      "When a vehicle reaches the end of its time in your fleet, we support its sale through auction or direct sales.",
+    icon: "/service/traffic-jam.svg",
+    href: "/services#disposal",
+  },
+  {
     title: "Operations Management",
     description:
-      "Streamline and automate fleet operations from dispatch to delivery, monitor performance, reduce inefficiencies, and improve turnaround with intelligent workflows and real-time oversight.",
-    icon: "operations",
+      "Streamline and automate fleet operations from dispatch to delivery. Monitor performance, reduce inefficiencies, and improve turnaround time with intelligent workflows and real-time oversight.",
+    icon: "/service/traffic-jam.svg",
+    href: "/#contact",
   },
-  {
-    title: "Unified Vehicle Data & Compliance System",
+];
+
+export const servicesPage = {
+  hero: {
+    title: "Full Lifecycle Fleet Services",
+    subtitle:
+      "Support across the full vehicle lifecycle, not just after it is on the road.",
+    imageSrc: "/service/service-hero.png",
+    imageAlt: "Three cars driving on a highway at sunset.",
+  },
+  sections: [
+    {
+      id: "purchase",
+      title: "Vehicle Purchase And Leasing",
+      body: "Sourcing and procurement support for fleet-grade vehicles. We handle registration, documentation and plate number processing on your behalf, so new vehicles are road-ready without the paperwork falling on your team.",
+      mediaFirst: false,
+      images: [
+        {
+          src: "/service/car-key.png",
+          alt: "Car keys being handed over beside a red vehicle.",
+        },
+        {
+          src: "/service/handshake.png",
+          alt: "Two people shaking hands beside a pickup truck.",
+        },
+      ],
+      included: [
+        "Sourcing and procurement of fleet-grade vehicles",
+        "Vehicle registration",
+        "Documentation",
+        "Plate number processing, handled for you",
+      ],
+      ctaLabel: "Enquire about purchase or leasing",
+      ctaHref: "/#contact",
+    },
+    {
+      id: "maintenance",
+      title: "Maintenance",
+      body: "Scheduled parts purchase, servicing and repair management. Keep every vehicle serviced on time and out of the workshop for as little time as possible, with maintenance planned and tracked through the Smart Fleet platform.",
+      mediaFirst: true,
+      images: [
+        {
+          src: "/service/Technician3.png",
+          alt: "A technician holding wrenches over an open car engine.",
+        },
+        {
+          src: "/service/fix.png",
+          alt: "A white car raised on a lift in a workshop.",
+        },
+      ],
+      included: [
+        "Scheduled servicing",
+        "Parts purchase",
+        "Repair management",
+        "Maintenance scheduling inside the platform",
+      ],
+      ctaLabel: "Talk to us about maintenance",
+      ctaHref: "/#contact",
+    },
+    {
+      id: "compliance",
+      title: "Compliance And Insurance",
+      body: "Digitized compliance records with alerts at 30, 14 and 7 days before expiry, paired with insurance support for every vehicle in your fleet. Documents stay valid and coverage keeps pace as your fleet changes.",
+      mediaFirst: true,
+      images: [
+        {
+          src: "/service/lady.png",
+          alt: "A fleet officer holding documents and a car key beside a black SUV.",
+        },
+        {
+          src: "/service/car-key.png",
+          alt: "Car keys being handed over beside a red vehicle.",
+        },
+      ],
+      included: [
+        "Digital compliance records",
+        "Automated renewals and expiry alerts at 30, 14 and 7 days",
+        "Insurance support for every vehicle",
+      ],
+      ctaLabel: "Get compliance support",
+      ctaHref: "/#contact",
+    },
+    {
+      id: "disposal",
+      title: "Vehicle Disposal And Auction",
+      body: "When a vehicle reaches the end of its time in your fleet, we support its sale through auction or direct sales.",
+      mediaFirst: true,
+      images: [
+        {
+          src: "/service/man.png",
+          alt: "A man in a suit opening the door of a car in a showroom.",
+        },
+        {
+          src: "/service/cars.png",
+          alt: "A row of parked cars along a paved street.",
+        },
+      ],
+    },
+    {
+      id: "platform",
+      title: "Smart Fleet Platform",
+      body: "All of the above is connected through our software platform, giving you live tracking, one view of compliance and a clear picture of risk and safety.",
+      mediaFirst: true,
+      images: [
+        {
+          src: "/service/technicain2.png",
+          alt: "A driver holding a tablet at the steering wheel.",
+        },
+        {
+          src: "/service/technician.png",
+          alt: "A fleet operator reviewing live truck locations on a tablet.",
+        },
+      ],
+      ctaLabel: "Explore the platform",
+      ctaHref: "/#contact",
+    },
+  ] satisfies ServicesPageSection[],
+};
+
+export const solutionsPage: SolutionsPageContent = {
+  hero: {
+    title: "Our Technology",
+    subtitle: "(the smart fleet web app)",
     description:
-      "Centralize all vehicle-related data including registration, insurance, licensing, and maintenance records into a single, secure platform. Ensure regulatory compliance while eliminating data fragmentation and fraud.",
-    icon: "unified",
+      "One platform, four pillars, unifying everything fleet operators currently manage by hand.",
+    ctaLabel: "Book a Demo",
+    ctaHref: "/#contact",
+    imageSrc: "/solutionns/app.png",
+    imageAlt:
+      "Smart Fleet dashboard on a tablet, showing fleet totals, quick actions, and alerts.",
   },
-  {
-    title: "Risk, Safety, Incident Intelligence",
-    description:
-      "Access real-time alerts on accidents, road hazards, and security threats. Enable proactive risk mitigation through community-driven reporting, predictive analytics, and incident tracking.",
-    icon: "risk",
-  },
-  {
-    title: "Enterprise Date & Integration Layer",
-    description:
-      "Unlock powerful insights from aggregated mobility data. Support decision-making with analytics on traffic patterns, vehicle usage, driver behavior, and operational performance.",
-    icon: "integration",
-  },
-] ;
+  pillarsTitle: "The Four Pillars",
+  pillars: [
+    {
+      title: "Fleet intelligence and operations",
+      body: "See your whole fleet in one view. Live vehicle tracking, dashboards, fuel and trip analytics, and driver performance all in one place.",
+      imageSrc: "/solutionns/pillar.png",
+      imageAlt: "Cars on a highway overlaid with a live tracking grid.",
+    },
+    {
+      title: "Unified vehicle data and compliance",
+      body: "Every vehicle gets a digital profile. Automated alerts at 30, 14 and 7 days before expiry, plus renewal tracking, keep your documents valid.",
+      imageSrc: "/solutionns/pillar2.png",
+      imageAlt: "A connected truck driving through a corridor of vehicle data.",
+    },
+    {
+      title: "Risk, safety and incident intelligence",
+      body: "Get ahead of safety issues with risk heatmaps, incident logging and SOS capability.",
+      imageSrc: "/solutionns/pillar3.png",
+      imageAlt: "An analyst reviewing a falling risk chart beside live operations data.",
+    },
+    {
+      title: "Enterprise data and integration layer",
+      body: "Centralized data that connects to insurers, logistics platforms and government systems, so your fleet information is not stuck in silos.",
+      imageSrc: "/solutionns/pillar4.png",
+      imageAlt: "A central server linked to several laptops across one data layer.",
+    },
+  ],
+  capabilitiesTitle: "Included capabilities",
+  capabilities: [
+    "Fleet dashboard",
+    "Vehicle profiles",
+    "Driver Profile",
+    "GPS tracking",
+    "Compliance alerts",
+    "Maintenance scheduling",
+    "Incidence logging",
+  ],
+  comparisonTitle: "From scattered data to one system",
+  comparisonWithoutLabel: "Without Smart Fleet",
+  comparisonWithLabel: "With Smart Fleet",
+  comparisonRows: [
+    {
+      without: "Paper records and spreadsheets",
+      with: "Digital vehicle profiles",
+    },
+    {
+      without: "Missed renewals",
+      with: "Alerts at 30, 14 and 7 days",
+    },
+    {
+      without: "No idea where vehicles are",
+      with: "Live GPS tracking",
+    },
+    {
+      without: "Informal incident reporting",
+      with: "Incident logging",
+    },
+    {
+      without: "Data in different places",
+      with: "One connected platform",
+    },
+  ],
+};
 
 export const homeTailoredSection = {
   pill: "Industry Fleet Solutions",
@@ -276,8 +537,8 @@ export const homeTailoredIndustries: TailoredIndustryItem[] = [
     id: "ride",
     label: "Ride-Hailing & Mobility Platforms",
     iconSrc: "/tailored/ride-icon.svg",
-    panelImageSrc: "/tailored/ride.svg",
-    imageAlt: "Ride-hailing and mobility platforms.",
+    panelImageSrc: "/tailored/lady-drivinng.png",
+    imageAlt: "Driver and passenger talking in a car.",
     body: "Improve driver safety, route efficiency, and customer experience with real-time traffic intelligence and integrated vehicle data.",
   },
   {
@@ -298,34 +559,55 @@ export const homeTailoredIndustries: TailoredIndustryItem[] = [
   },
 ];
 
-export const aboutValues = [
-  {
-    title: "Evidence over assumptions",
-    description:
-      "We validate early, document decisions, and keep stakeholders aligned with clear tradeoffs.",
-    icon: "spark",
+export const aboutPage = {
+  title: "About Us",
+  subtitle:
+    "Support across the full vehicle lifecycle, not just after it is on the road.",
+  sinceLabel: "Since",
+  sinceYear: "2009",
+  imageSrc: "/img.svg",
+  imageAlt: "Rows of new vehicles parked in a fleet yard.",
+  whoTitle: "Who we are",
+  whoBody:
+    "Autodate is a technology-driven fleet and mobility company for global enterprises. We support vehicles from acquisition, management and maintenance through to disposal by auction or direct sales, all backed by our Smart Fleet software platform.",
+  mission: {
+    title: "Mission",
+    icon: "/mission.svg",
+    body: "To build a connected mobility ecosystem that leverages real-time data and automation to optimize transportation & empower smarter decision-making.",
   },
-  {
-    title: "Quality built into the workflow",
-    description:
-      "Checks, documentation, and review points help maintain standards from prototype to production.",
-    icon: "shield",
+  vision: {
+    title: "Vision",
+    icon: "/vission.svg",
+    body: "To become Africa’s leading intelligent mobility infrastructure where every vehicle is seamlessly connected through data and technology.",
   },
-  {
-    title: "Communication that moves work forward",
-    description:
-      "Expect direct updates, actionable next steps, and realistic timelines.",
-    icon: "message",
-  },
-] as const;
-
-export const aboutBody = {
-  missionTitle: "Our mission",
-  missionBody:
-    "Help teams engineer dependable products by combining practical manufacturing insight with disciplined engineering clarity.",
   approachTitle: "Our approach",
   approachBody:
-    "We start by understanding constraints, then translate requirements into a repeatable plan that supports fast learning and predictable delivery.",
+    "Fleet operators are often managing everything by hand. Records are on paper or in spreadsheets, incidents are handled informally, and critical data is scattered. We built Autodate to bring this together so operators can see their whole fleet, stay compliant and act on problems early.",
+  focusTitle: "What we focus on",
+  focus: [
+    {
+      label: "Visibility",
+      text: "Live knowledge of where vehicles are and how they are performing.",
+    },
+    {
+      label: "Compliance",
+      text: "Documents and renewals kept valid, with alerts before anything expires.",
+    },
+    {
+      label: "Safety",
+      text: "Incident logging and risk insight so safety issues are handled proactively.",
+    },
+    {
+      label: "Connected data",
+      text: "One central record that connects to insurers, logistics platforms and government systems.",
+    },
+  ],
+  locationTitle: "Where to find us",
+  locationBody:
+    "20 Awudu Ekpekha Boulevard, Lekki Phase 1, Lagos, Nigeria, serving enterprise clients globally.",
+  mapLabel: "20 Awudu Ekpekha Boulevard, Lekki Phase 1, Lagos, Nigeria",
+  mapLat: 6.4452159,
+  mapLng: 3.4783371,
 } as const;
 
 export const servicesCards: ServiceCard[] = [

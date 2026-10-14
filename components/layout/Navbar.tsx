@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const ctaClass =
-  "inline-flex h-10 items-center justify-center rounded-lg bg-[#B71C1C] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#B71C1C]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40";
+  "inline-flex h-11 items-center justify-center rounded-xl bg-black px-6 text-sm font-medium text-white transition-colors hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30";
 
 function isNavLinkActive(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b border-neutral-200 bg-white transition-shadow",
+        "sticky top-0 z-50 bg-white transition-shadow",
         isScrolled ? "shadow-sm" : "",
       )}
     >
@@ -46,7 +46,7 @@ export default function Navbar() {
         </Link>
 
         <nav
-          className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-12 md:flex"
+          className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-6 md:flex lg:gap-8 xl:gap-12"
           aria-label={uiStrings.mobileNavLabel}
         >
           {navLinks.map((link) => {
@@ -57,10 +57,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors",
+                  "whitespace-nowrap text-[15px] font-medium transition-colors",
                   isActive
-                    ? "font-semibold text-[#B71C1C]"
-                    : "text-black/80 hover:text-black",
+                    ? "text-[#D31510]"
+                    : "text-[#1A1A1A] hover:text-[#D31510]",
                 )}
               >
                 {link.label}

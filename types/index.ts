@@ -18,6 +18,8 @@ export interface ServiceCard {
   title: string;
   description: string;
   icon: string;
+  href?: string;
+  featured?: boolean;
 }
 
 export interface FooterColumn {
@@ -26,29 +28,18 @@ export interface FooterColumn {
   socialLinks?: NavLink[];
 }
 
-export interface HomeHeroMissionVision {
-  title: string;
-  body: string;
-}
-
 export interface HomeHeroLanding {
   pill: string;
-  /** First line of the hero headline (e.g. “Intelligent fleet solutions”). */
   titleLine1: string;
-  /** Start of second line before the rotating word (e.g. “for ”). */
-  titleLine2Prefix: string;
+  titleLine2: string;
   rotatingWords: readonly string[];
   description: string;
-  mission: HomeHeroMissionVision;
-  vision: HomeHeroMissionVision;
+  emailPlaceholder: string;
   ctaLabel: string;
   ctaHref: string;
+  stats: readonly { value: string; label: string }[];
   mainImageSrc: string;
-  insetTopLeftSrc?: string;
-  insetBottomRightSrc?: string;
   mainImageAlt: string;
-  insetTopLeftAlt: string;
-  insetBottomRightAlt: string;
 }
 
 export interface TailoredIndustryItem {
@@ -60,6 +51,54 @@ export interface TailoredIndustryItem {
   panelImageSrc: string;
   imageAlt: string;
   body: string;
+}
+
+export interface ServicesPageMedia {
+  src: string;
+  alt: string;
+}
+
+export interface SolutionsPillar {
+  title: string;
+  body: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+export interface SolutionsComparisonRow {
+  without: string;
+  with: string;
+}
+
+export interface SolutionsPageContent {
+  hero: {
+    title: string;
+    subtitle: string;
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    imageSrc: string;
+    imageAlt: string;
+  };
+  pillarsTitle: string;
+  pillars: readonly SolutionsPillar[];
+  capabilitiesTitle: string;
+  capabilities: readonly string[];
+  comparisonTitle: string;
+  comparisonWithoutLabel: string;
+  comparisonWithLabel: string;
+  comparisonRows: readonly SolutionsComparisonRow[];
+}
+
+export interface ServicesPageSection {
+  id: string;
+  title: string;
+  body: string;
+  mediaFirst: boolean;
+  images: ServicesPageMedia[];
+  included?: string[];
+  ctaLabel?: string;
+  ctaHref?: string;
 }
 
 export interface BlogSection {
