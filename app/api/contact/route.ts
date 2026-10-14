@@ -65,6 +65,7 @@ export async function POST(req: NextRequest) {
   };
 
   if (!process.env.SENDGRID_API_KEY) {
+    console.error("Contact email failed: SENDGRID_API_KEY is not set");
     return jsonError(contact.form.fallbackApiMessage, 503);
   }
 
@@ -72,7 +73,9 @@ export async function POST(req: NextRequest) {
     await sendContactEmail(sanitizedPayload);
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (error) {
-    console.error("Contact email failed:", error);
+    const responseBody = (error as { response?: { body?: unknown } }).response
+      ?.body;
+    console.error("Contact email failed:", responseBody ?? error);
     return jsonError(contact.form.fallbackApiMessage, 503);
   }
 }

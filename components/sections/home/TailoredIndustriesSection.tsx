@@ -76,12 +76,19 @@ function IndustryList({
 function IndustryImage({
   src,
   alt,
+  className,
 }: {
   src: string;
   alt: string;
+  className?: string;
 }) {
   return (
-    <div className="relative min-h-[260px] overflow-hidden rounded-2xl bg-neutral-800 sm:min-h-[320px] lg:min-h-full">
+    <div
+      className={cn(
+        "relative min-h-[260px] overflow-hidden rounded-2xl bg-neutral-800 sm:min-h-[320px] lg:min-h-full",
+        className,
+      )}
+    >
       <Image
         key={src}
         src={src}
@@ -100,12 +107,13 @@ export default function TailoredIndustriesSection() {
   const bottomIndustries = homeTailoredIndustries.slice(3);
 
   const openIndustry = homeTailoredIndustries.find((item) => item.id === openId);
+  const automotive = bottomIndustries.find((item) => item.id === "automotive");
   const topImage = topIndustries.some((item) => item.id === openId)
     ? openIndustry
     : topIndustries[0];
   const bottomImage = bottomIndustries.some((item) => item.id === openId)
     ? openIndustry
-    : bottomIndustries[0];
+    : automotive;
 
   function toggle(id: string) {
     setOpenId((current) => (current === id ? null : id));
@@ -117,7 +125,7 @@ export default function TailoredIndustriesSection() {
       className="scroll-mt-24 bg-[#141414] py-16 text-white md:py-20"
     >
       <div className="mx-auto grid w-full max-w-6xl gap-4 px-4 sm:px-6 md:px-8 lg:grid-cols-2 lg:px-10 xl:px-14">
-        <div className="flex flex-col justify-center gap-6 py-2 lg:pr-4">
+        <div className="order-1 flex flex-col justify-center gap-6 py-2 lg:pr-4">
           <h2 className="max-w-md text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
             {homeTailoredSection.title}
           </h2>
@@ -129,22 +137,28 @@ export default function TailoredIndustriesSection() {
         </div>
 
         <IndustryImage
+          className="order-2"
           src={topImage?.panelImageSrc ?? homeTailoredSection.heroImageSrc}
           alt={topImage?.imageAlt ?? homeTailoredSection.heroImageAlt}
         />
 
-        <IndustryImage
-          src={bottomImage?.panelImageSrc ?? "/tailored/lady-drivinng.png"}
-          alt={bottomImage?.imageAlt ?? "Driver and passenger in a car."}
-        />
-
-        <div className="flex flex-col justify-center py-2 lg:pl-4">
+        <div className="order-3 flex flex-col justify-center py-2 lg:order-4 lg:pl-4">
           <IndustryList
             items={bottomIndustries}
             openId={openId}
             onToggle={toggle}
           />
         </div>
+
+        <IndustryImage
+          className="order-4 lg:order-3"
+          src={
+            bottomImage?.panelImageSrc ?? "/tailored/lady-drivinng.png"
+          }
+          alt={
+            bottomImage?.imageAlt ?? "Driver and passenger talking in a car."
+          }
+        />
       </div>
     </section>
   );

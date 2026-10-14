@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useContactModal } from "@/components/forms/ContactModalProvider";
 import { navContactCta, navLinks, uiStrings } from "@/constants";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
@@ -21,8 +22,13 @@ export default function Navbar() {
   const pathname = usePathname();
   const scrollY = useScrollPosition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const openContact = useContactModal();
 
   const isScrolled = scrollY > 8;
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header
@@ -70,25 +76,46 @@ export default function Navbar() {
         </nav>
 
         <div className="z-10 ml-auto flex items-center gap-2">
-          <Link
-            href={navContactCta.href}
+          <button
+            type="button"
+            onClick={() => openContact()}
             className={cn(ctaClass, "hidden md:inline-flex")}
           >
             {navContactCta.label}
-          </Link>
+          </button>
 
-          {/* <button
+          <button
             type="button"
-            onClick={() => setIsMenuOpen((v) => !v)}
+            onClick={() => setIsMenuOpen((open) => !open)}
             aria-label={
               isMenuOpen ? uiStrings.closeMenuLabel : uiStrings.menuLabel
             }
-            aria-expanded={isMenuOpen ? "true" : "false"}
+            aria-expanded={isMenuOpen}
             aria-controls="site-mobile-nav"
-            className="inline-flex items-center justify-center rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm font-medium text-black/80 transition-colors hover:bg-neutral-50 md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-[#1A1A1A] transition-colors hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30 md:hidden"
           >
-            {isMenuOpen ? uiStrings.closeMenuLabel : uiStrings.menuLabel}
-          </button> */}
+            {isMenuOpen ? (
+              <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden>
+                <path
+                  d="M6 6l12 12M18 6L6 18"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden>
+                <path
+                  d="M4 7h16M4 12h16M4 17h16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
 
@@ -122,13 +149,16 @@ export default function Navbar() {
               );
             })}
           </nav>
-          <Link
-            href={navContactCta.href}
-            onClick={() => setIsMenuOpen(false)}
+          <button
+            type="button"
+            onClick={() => {
+              setIsMenuOpen(false);
+              openContact();
+            }}
             className={cn(ctaClass, "mt-2 w-full")}
           >
             {navContactCta.label}
-          </Link>
+          </button>
         </div>
       </div>
     </header>

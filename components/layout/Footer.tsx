@@ -1,8 +1,23 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useContactModal } from "@/components/forms/ContactModalProvider";
 import { footerColumns, footerCta, siteConfig } from "@/constants";
 
-function FooterItem({ href, label }: { href: string; label: string }) {
+function isContactHref(href: string) {
+  return href === "/#contact" || href === "#contact";
+}
+
+function FooterItem({
+  href,
+  label,
+  onContact,
+}: {
+  href: string;
+  label: string;
+  onContact: () => void;
+}) {
   const className =
     "text-sm leading-6 text-white/75 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70";
 
@@ -29,6 +44,18 @@ function FooterItem({ href, label }: { href: string; label: string }) {
     );
   }
 
+  if (isContactHref(href)) {
+    return (
+      <button
+        type="button"
+        onClick={onContact}
+        className={`${className} cursor-pointer border-0 bg-transparent p-0 text-left`}
+      >
+        {label}
+      </button>
+    );
+  }
+
   return (
     <Link href={href} className={className}>
       {label}
@@ -37,6 +64,8 @@ function FooterItem({ href, label }: { href: string; label: string }) {
 }
 
 export default function Footer() {
+  const openContact = useContactModal();
+
   return (
     <footer className="bg-white">
       <div className="relative z-30 mx-auto flex max-w-6xl justify-end px-4 pt-3 sm:px-6 md:px-8 lg:px-10 xl:px-14">
@@ -74,12 +103,13 @@ export default function Footer() {
           <p className="mt-4 max-w-xl text-pretty text-base leading-7 text-white/90 sm:text-lg">
             {footerCta.description}
           </p>
-          <Link
-            href={footerCta.ctaHref}
+          <button
+            type="button"
+            onClick={() => openContact()}
             className="mt-8 inline-flex h-12 min-w-[9.5rem] items-center justify-center rounded-xl bg-white px-8 text-sm font-semibold text-[#1A1A1A] transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:translate-y-px"
           >
             {footerCta.ctaLabel}
-          </Link>
+          </button>
         </div>
 
         <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-4 pb-6 sm:px-6 md:grid-cols-2 md:px-8 lg:grid-cols-[1.15fr_0.8fr_1.25fr_1fr] lg:px-10 xl:px-14">
@@ -100,7 +130,11 @@ export default function Footer() {
               <ul className="mt-4 space-y-2.5">
                 {column.links.map((link) => (
                   <li key={`${column.title}-${link.label}`}>
-                    <FooterItem href={link.href} label={link.label} />
+                    <FooterItem
+                      href={link.href}
+                      label={link.label}
+                      onContact={() => openContact()}
+                    />
                   </li>
                 ))}
               </ul>

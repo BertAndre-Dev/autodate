@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useContactModal } from "@/components/forms/ContactModalProvider";
 import { homeHeroLanding } from "@/constants";
 import { isValidEmail } from "@/lib/utils";
 
@@ -104,6 +105,7 @@ export default function HomeHero() {
   const longWord = word.length > 18;
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState<string | null>(null);
+  const openContact = useContactModal();
 
   function onBookDemo(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -113,12 +115,7 @@ export default function HomeHero() {
       return;
     }
     setEmailError(null);
-    const normalized = value.toLowerCase();
-    sessionStorage.setItem("demo-email", normalized);
-    window.dispatchEvent(
-      new CustomEvent("demo-email", { detail: normalized }),
-    );
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    openContact(value.toLowerCase());
   }
 
   return (
