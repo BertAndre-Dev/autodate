@@ -53,7 +53,7 @@ export default function SolutionsPageSections() {
 
   return (
     <div className="bg-white">
-      <section className="bg-[#141414] pb-12 pt-14 text-white md:pb-16 md:pt-20">
+      <section className="bg-[#141414] pt-14 text-white md:pt-20">
         <div className={shell}>
           <ScrollReveal>
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.65fr)] lg:gap-10">
@@ -93,7 +93,7 @@ export default function SolutionsPageSections() {
         <PillarContours />
         <div className={`relative ${shell}`}>
           <ScrollReveal>
-            <h2 className="text-center text-4xl font-semibold tracking-tight text-[#111111] sm:text-5xl">
+            <h2 className="text-center text-3xl font-regular tracking-tight text-[#111111] sm:text-4xl">
               {solutionsPage.pillarsTitle}
             </h2>
           </ScrollReveal>
@@ -106,7 +106,7 @@ export default function SolutionsPageSections() {
                     <h3 className="text-lg font-bold leading-snug tracking-tight text-[#111111]">
                       {pillar.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-6 text-[#8A8A8A]">
+                    <p className="mt-3 text-sm leading-6 text-[#8D8D8D]">
                       {pillar.body}
                     </p>
                   </div>
@@ -145,7 +145,7 @@ export default function SolutionsPageSections() {
                   height={22}
                   className="h-[22px] w-[22px]"
                 />
-                <p className="mt-6 text-sm font-medium text-[#1A1A1A]">
+                <p className="mt-6 text-md font-normal text-[#1A1A1A]">
                   {item}
                 </p>
               </li>
@@ -167,10 +167,10 @@ export default function SolutionsPageSections() {
               <table className="w-full border-separate border-spacing-x-3 border-spacing-y-0 text-center">
                 <thead>
                   <tr>
-                    <th className="rounded-xl bg-[#F4F4F4] px-4 py-4 text-sm font-medium text-[#1A1A1A] sm:text-base">
+                    <th className="rounded-xl bg-[#F4F4F4] px-4 py-4 text-md font-normal text-[#1A1A1A] sm:text-base">
                       {solutionsPage.comparisonWithoutLabel}
                     </th>
-                    <th className="rounded-xl bg-[#F4F4F4] px-4 py-4 text-sm font-medium text-[#1A1A1A] sm:text-base">
+                    <th className="rounded-xl bg-[#F4F4F4] px-4 py-4 text-md font-normal text-[#1A1A1A] sm:text-base">
                       {solutionsPage.comparisonWithLabel}
                     </th>
                   </tr>
@@ -178,10 +178,10 @@ export default function SolutionsPageSections() {
                 <tbody>
                   {solutionsPage.comparisonRows.map((row) => (
                     <tr key={row.without}>
-                      <td className="px-3 py-5 text-sm leading-6 text-[#1A1A1A] sm:py-6 sm:text-[15px]">
+                      <td className="px-3 py-5 text-md leading-6 text-[#1A1A1A] sm:py-6 sm:text-[15px]">
                         {row.without}
                       </td>
-                      <td className="px-3 py-5 text-sm leading-6 text-[#1A1A1A] sm:py-6 sm:text-[15px]">
+                      <td className="px-3 py-5 text-md leading-6 text-[#1A1A1A] sm:py-6 sm:text-[15px]">
                         {row.with}
                       </td>
                     </tr>

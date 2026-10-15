@@ -425,7 +425,7 @@ export const servicesPage = {
 export const solutionsPage: SolutionsPageContent = {
   hero: {
     title: "Our Technology",
-    subtitle: "(the smart fleet web app)",
+    subtitle: "(The Smart Fleet web app)",
     description:
       "One platform, four pillars, unifying everything fleet operators currently manage by hand.",
     ctaLabel: "Book a Demo",
