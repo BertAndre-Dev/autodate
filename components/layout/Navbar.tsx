@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { navContactCta, navLinks, uiStrings } from "@/constants";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
@@ -21,11 +21,13 @@ export default function Navbar() {
   const pathname = usePathname();
   const scrollY = useScrollPosition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuPath, setMenuPath] = useState(pathname);
   const isScrolled = scrollY > 8;
 
-  useEffect(() => {
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
     setIsMenuOpen(false);
-  }, [pathname]);
+  }
 
   return (
     <header
@@ -34,7 +36,7 @@ export default function Navbar() {
         isScrolled ? "shadow-sm" : "",
       )}
     >
-      <div className="relative mx-auto flex w-full max-w-7xl items-center px-4 py-3.5 sm:px-6 md:px-8 lg:px-10 xl:px-14">
+      <div className="relative mx-auto flex w-full max-w-7xl items-center px-4 py-3.5 sm:px-6 md:px-8 lg:px-10 xl:px-0">
         <Link
           href="/"
           className="z-10 inline-block shrink-0 origin-left cursor-pointer transition-transform duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30 hover:scale-105 active:scale-[0.98] motion-reduce:transition-none"
