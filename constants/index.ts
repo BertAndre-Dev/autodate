@@ -28,7 +28,7 @@ export const navLinks: NavLink[] = [
 ];
 
 export const navContactCta = {
-  href: "/#contact",
+  href: "/contact",
   label: "Contact Us",
 } as const;
 
@@ -45,7 +45,7 @@ export const homeHeroLanding: HomeHeroLanding = {
     "One partner for every stage of your fleet, backed by the Smart Fleet software platform.",
   emailPlaceholder: "Enter your email",
   ctaLabel: "Book a Demo",
-  ctaHref: "#contact",
+  ctaHref: "/contact",
   stats: [
     { value: "10+", label: "Years" },
     { value: "6", label: "Industry Sectors" },
@@ -60,7 +60,7 @@ export const footerCta = {
   description:
     "Autodate is built for enterprise and medium-to-large fleet operators around the world.",
   ctaLabel: "Contact Us",
-  ctaHref: "/#contact",
+  ctaHref: "/contact",
   brandLine: "Smart Fleet Management",
 } as const;
 
@@ -71,7 +71,7 @@ export const footerColumns: FooterColumn[] = [
       { href: "/", label: "Home" },
       { href: "/about", label: "About Us" },
       { href: "/services", label: "Services" },
-      { href: "/#contact", label: "Contact Us" },
+      { href: "/contact", label: "Contact Us" },
     ],
   },
   {
@@ -146,7 +146,7 @@ export const hero: {
     subtitle:
       "Autodate is a technology-driven fleet and mobility company for global enterprises.",
     ctaLabel: "Contact Us",
-    ctaHref: "/#contact",
+    ctaHref: "/contact",
   },
   services: {
     variant: "pageTitle",
@@ -301,7 +301,7 @@ export const homeServicesLandingCards: ServiceCard[] = [
     description:
       "Streamline and automate fleet operations from dispatch to delivery. Monitor performance, reduce inefficiencies, and improve turnaround time with intelligent workflows and real-time oversight.",
     icon: "/service/traffic-jam.svg",
-    href: "/#contact",
+    href: "/contact",
   },
 ];
 
@@ -336,7 +336,7 @@ export const servicesPage = {
         "Plate number processing, handled for you",
       ],
       ctaLabel: "Enquire about purchase or leasing",
-      ctaHref: "/#contact",
+      ctaHref: "/contact",
     },
     {
       id: "maintenance",
@@ -360,7 +360,7 @@ export const servicesPage = {
         "Maintenance scheduling inside the platform",
       ],
       ctaLabel: "Talk to us about maintenance",
-      ctaHref: "/#contact",
+      ctaHref: "/contact",
     },
     {
       id: "compliance",
@@ -383,7 +383,7 @@ export const servicesPage = {
         "Insurance support for every vehicle",
       ],
       ctaLabel: "Get compliance support",
-      ctaHref: "/#contact",
+      ctaHref: "/contact",
     },
     {
       id: "disposal",
@@ -417,7 +417,7 @@ export const servicesPage = {
         },
       ],
       ctaLabel: "Explore the platform",
-      ctaHref: "/#contact",
+      ctaHref: "/contact",
     },
   ] satisfies ServicesPageSection[],
 };
@@ -429,7 +429,7 @@ export const solutionsPage: SolutionsPageContent = {
     description:
       "One platform, four pillars, unifying everything fleet operators currently manage by hand.",
     ctaLabel: "Book a Demo",
-    ctaHref: "/#contact",
+    ctaHref: "/contact",
     imageSrc: "/solutionns/app.png",
     imageAlt:
       "Smart Fleet dashboard on a tablet, showing fleet totals, quick actions, and alerts.",
@@ -663,6 +663,24 @@ export const productsCards: ServiceCard[] = [
     icon: "spark",
   },
 ] ;
+
+export const contactPage = {
+  visit: {
+    title: "Visit Us",
+    body: "20 Awudu Ekpekha Blvd St, Lekki Phase 1, Lekki 106104, Lagos, Nigeria",
+  },
+  call: {
+    title: "Call Us",
+    phone: "+234 9138667927",
+    phoneHref: "tel:+2349138667927",
+    hours: "Mon-Fri | 8AM - 4PM (WAT)",
+  },
+  email: {
+    title: "Email Us",
+    address: "inquiry@autodatefleet.com",
+    href: "mailto:inquiry@autodatefleet.com",
+  },
+} as const;
 
 export const contact = {
   detailsTitle: "What happens next",

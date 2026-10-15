@@ -106,7 +106,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
               stronger efficiency, and operations built for the long term.
             </p>
             <Link
-              href="/#contact"
+              href="/contact"
               className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-[#B71C1C] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#B71C1C]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
             >
               Contact Us

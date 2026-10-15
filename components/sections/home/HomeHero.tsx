@@ -3,54 +3,43 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
-import { useContactModal } from "@/components/forms/ContactModalProvider";
 import { homeHeroLanding } from "@/constants";
 import { isValidEmail } from "@/lib/utils";
 
 function EdgeContours() {
+  const lineStyle = {
+    width: "auto",
+    marginLeft: "-58%",
+    filter: "brightness(0) invert(74%)",
+  } as const;
+
   return (
     <div
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden
     >
-      <svg
-        className="absolute -left-8 top-0 h-[80%] w-40 text-[#E4E4E1] sm:w-52"
-        viewBox="0 0 180 640"
-        fill="none"
-      >
-        <path
-          d="M20 20c40 60 8 110 46 170s-8 100 28 160"
-          stroke="currentColor"
-          strokeWidth="1.1"
+      <div className="absolute -left-4 top-0 h-112 w-16 overflow-hidden sm:h-144 sm:w-20 lg:-left-2 lg:h-168 lg:w-24">
+        <Image
+          src="/line.png"
+          alt=""
+          width={605}
+          height={1362}
+          className="h-full w-auto max-w-none"
+          style={lineStyle}
         />
-        <path
-          d="M4 80c50 40 12 120 54 180"
-          stroke="currentColor"
-          strokeWidth="1.1"
+      </div>
+      <div className="absolute -right-4 top-8 h-104 w-16 overflow-hidden sm:h-136 sm:w-20 lg:-right-2 lg:h-160 lg:w-24">
+        <Image
+          src="/line.png"
+          alt=""
+          width={605}
+          height={1362}
+          className="h-full w-auto max-w-none -scale-x-100"
+          style={lineStyle}
         />
-        <path
-          d="M48 0c18 70-6 130 22 200"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-      </svg>
-      <svg
-        className="absolute -right-10 top-8 h-[70%] w-44 text-[#E4E4E1] sm:w-56"
-        viewBox="0 0 200 640"
-        fill="none"
-      >
-        <path
-          d="M180 30c-50 50-8 120-48 180s10 110-22 180"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-        <path
-          d="M200 100c-60 40-16 130-62 190"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-      </svg>
+      </div>
     </div>
   );
 }
@@ -105,7 +94,7 @@ export default function HomeHero() {
   const longWord = word.length > 18;
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState<string | null>(null);
-  const openContact = useContactModal();
+  const router = useRouter();
 
   function onBookDemo(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -115,11 +104,11 @@ export default function HomeHero() {
       return;
     }
     setEmailError(null);
-    openContact(value.toLowerCase());
+    router.push(`/contact?email=${encodeURIComponent(value.toLowerCase())}`);
   }
 
   return (
-    <section className="relative bg-white pb-16 pt-10 md:pb-20 md:pt-14 lg:pt-16">
+    <section className="relative overflow-hidden bg-white pb-16 pt-10 md:pb-20 md:pt-14 lg:pt-16">
       <EdgeContours />
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">

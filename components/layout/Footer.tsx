@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
-import { useContactModal } from "@/components/forms/ContactModalProvider";
 import { footerColumns, footerCta, siteConfig } from "@/constants";
 
 // Accelerate, hold a steady cruise, then brake. Slopes match at each join
@@ -39,18 +38,12 @@ function rideDuration(distance: number) {
   return Math.min(1680, Math.max(920, 680 + Math.sqrt(distance) * 15));
 }
 
-function isContactHref(href: string) {
-  return href === "/#contact" || href === "#contact";
-}
-
 function FooterItem({
   href,
   label,
-  onContact,
 }: {
   href: string;
   label: string;
-  onContact: () => void;
 }) {
   const className =
     "text-sm leading-6 text-white/75 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70";
@@ -78,18 +71,6 @@ function FooterItem({
     );
   }
 
-  if (isContactHref(href)) {
-    return (
-      <button
-        type="button"
-        onClick={onContact}
-        className={`${className} cursor-pointer border-0 bg-transparent p-0 text-left`}
-      >
-        {label}
-      </button>
-    );
-  }
-
   return (
     <Link href={href} className={className}>
       {label}
@@ -98,7 +79,6 @@ function FooterItem({
 }
 
 export default function Footer() {
-  const openContact = useContactModal();
   const reducedMotion = useReducedMotion();
   const carButtonRef = useRef<HTMLButtonElement>(null);
   const rideCleanup = useRef<(() => void) | null>(null);
@@ -246,8 +226,14 @@ export default function Footer() {
           type="button"
           onClick={rideToTop}
           aria-label="Back to top"
-          className="-mb-10 cursor-pointer border-0 bg-transparent p-0 transition-transform duration-100 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C] focus-visible:ring-offset-2 active:scale-[0.97] sm:-mb-14"
+          className="group relative -mb-10 cursor-pointer border-0 bg-transparent p-0 transition-transform duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C] focus-visible:ring-offset-2 motion-safe:hover:-translate-y-1.5 motion-safe:hover:scale-[1.06] active:scale-[0.97] sm:-mb-14"
         >
+          <span
+            aria-hidden
+            className="pointer-events-none absolute bottom-[calc(100%+0.45rem)] left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-md bg-[#1A1A1A] px-2.5 py-1 text-xs font-medium text-white opacity-0 shadow-md transition-opacity duration-150 ease-out group-hover:opacity-100 group-focus-visible:opacity-100"
+          >
+            Back to top
+          </span>
           <Image
             src="/footer/car.png"
             alt=""
@@ -285,13 +271,12 @@ export default function Footer() {
           <p className="mt-4 max-w-xl text-pretty text-base leading-7 text-white/90 sm:text-lg">
             {footerCta.description}
           </p>
-          <button
-            type="button"
-            onClick={() => openContact()}
+          <Link
+            href={footerCta.ctaHref}
             className="mt-8 inline-flex h-12 min-w-[9.5rem] items-center justify-center rounded-xl bg-white px-8 text-sm font-semibold text-[#1A1A1A] transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:translate-y-px"
           >
             {footerCta.ctaLabel}
-          </button>
+          </Link>
         </div>
 
         <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 pb-6 sm:px-6 md:grid-cols-2 md:px-8 lg:grid-cols-[1.15fr_0.8fr_1.25fr_1fr] lg:px-10 xl:px-14">
@@ -312,11 +297,7 @@ export default function Footer() {
               <ul className="mt-4 space-y-2.5">
                 {column.links.map((link) => (
                   <li key={`${column.title}-${link.label}`}>
-                    <FooterItem
-                      href={link.href}
-                      label={link.label}
-                      onContact={() => openContact()}
-                    />
+                    <FooterItem href={link.href} label={link.label} />
                   </li>
                 ))}
               </ul>
