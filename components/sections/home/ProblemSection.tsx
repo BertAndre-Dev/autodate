@@ -5,7 +5,7 @@ import { problemSection } from "@/constants";
 export default function ProblemSection() {
   return (
     <section className="bg-white py-6 md:py-10">
-      <div className="mx-auto grid w-full max-w-6xl overflow-hidden rounded-2xl bg-[#171717] lg:grid-cols-2 lg:min-h-[520px]">
+      <div className="mx-auto grid w-full max-w-7xl overflow-hidden lg:rounded-2xl bg-[#171717] lg:grid-cols-2 lg:min-h-[520px]">
         <div className="relative min-h-[280px] sm:min-h-[360px]">
           <Image
             src={problemSection.imageSrc}

@@ -124,7 +124,7 @@ export default function TailoredIndustriesSection() {
       id="solutions"
       className="scroll-mt-24 bg-[#141414] py-16 text-white md:py-20"
     >
-      <div className="mx-auto grid w-full max-w-6xl gap-4 px-4 sm:px-6 md:px-8 lg:grid-cols-2 lg:px-10 xl:px-14">
+      <div className="mx-auto grid w-full max-w-7xl gap-4 px-4 sm:px-6 md:px-8 lg:grid-cols-2 lg:px-10 xl:px-14">
         <div className="order-1 flex flex-col justify-center gap-6 py-2 lg:pr-4">
           <h2 className="max-w-md text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
             {homeTailoredSection.title}

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useContactModal } from "@/components/forms/ContactModalProvider";
 import { navContactCta, navLinks, uiStrings } from "@/constants";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
@@ -22,8 +21,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const scrollY = useScrollPosition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const openContact = useContactModal();
-
   const isScrolled = scrollY > 8;
 
   useEffect(() => {
@@ -37,7 +34,7 @@ export default function Navbar() {
         isScrolled ? "shadow-sm" : "",
       )}
     >
-      <div className="relative mx-auto flex w-full max-w-6xl items-center px-4 py-3.5 sm:px-6 md:px-8 lg:px-10 xl:px-14">
+      <div className="relative mx-auto flex w-full max-w-7xl items-center px-4 py-3.5 sm:px-6 md:px-8 lg:px-10 xl:px-14">
         <Link
           href="/"
           className="z-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30"
@@ -76,13 +73,12 @@ export default function Navbar() {
         </nav>
 
         <div className="z-10 ml-auto flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => openContact()}
+          <Link
+            href={navContactCta.href}
             className={cn(ctaClass, "hidden md:inline-flex")}
           >
             {navContactCta.label}
-          </button>
+          </Link>
 
           <button
             type="button"
@@ -124,7 +120,7 @@ export default function Navbar() {
         hidden={!isMenuOpen}
         className="border-t border-neutral-200 bg-white md:hidden"
       >
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
           <nav
             aria-label={uiStrings.mobileNavLabel}
             className="flex flex-col gap-1"
@@ -149,16 +145,13 @@ export default function Navbar() {
               );
             })}
           </nav>
-          <button
-            type="button"
-            onClick={() => {
-              setIsMenuOpen(false);
-              openContact();
-            }}
+          <Link
+            href={navContactCta.href}
+            onClick={() => setIsMenuOpen(false)}
             className={cn(ctaClass, "mt-2 w-full")}
           >
             {navContactCta.label}
-          </button>
+          </Link>
         </div>
       </div>
     </header>
