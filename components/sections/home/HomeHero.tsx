@@ -20,7 +20,7 @@ function EdgeContours() {
       className="pointer-events-none absolute inset-0 z-20 overflow-hidden"
       aria-hidden
     >
-      <div className="absolute -left-4 top-0 h-112 w-16 overflow-visible sm:h-144 sm:w-20 lg:-left-2 lg:h-168 lg:w-24">
+      <div className="absolute -left-4 top-0 hidden h-112 w-16 overflow-visible sm:h-144 sm:w-20 lg:-left-2 xl:block lg:h-168 lg:w-24">
         <Image
           src="/line.png"
           alt=""
@@ -30,7 +30,7 @@ function EdgeContours() {
           style={lineStyle}
         />
       </div>
-      <div className="absolute -right-4 top-8 h-104 w-16 overflow-visible sm:h-136 sm:w-20 lg:-right-2 lg:h-160 lg:w-24">
+      <div className="absolute -right-4 top-8 h-104 w-16 overflow-visible sm:h-136 sm:w-20 lg:-right-2 lg:hidden lg:h-160 lg:w-24 xl:block">
         <Image
           src="/line.png"
           alt=""
