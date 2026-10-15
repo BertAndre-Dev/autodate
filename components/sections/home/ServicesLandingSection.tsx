@@ -18,7 +18,7 @@ export default function ServicesLandingSection() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm text-[#6B6B6B]">{homeServicesLanding.eyebrow}</p>
           <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-[#111111] sm:text-4xl md:text-[2.75rem] md:leading-[1.15]">

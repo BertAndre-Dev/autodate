@@ -122,7 +122,7 @@ export default function HomeHero() {
     <section className="relative bg-white pb-16 pt-10 md:pb-20 md:pt-14 lg:pt-16">
       <EdgeContours />
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6">
           <div className="flex min-w-0 flex-col">
             <span className="inline-flex w-fit rounded-full bg-[#F3F4F6] px-5 py-2 text-sm font-medium text-[#6B7280]">

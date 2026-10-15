@@ -34,7 +34,7 @@ function RedDotGrid({
 export default function IntelligentFleetSection() {
   return (
     <section className="bg-white mb-8 md:mb-32 lg:mb-40">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
         <div className="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
           <ScrollReveal className="hidden lg:block">
             <div className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">

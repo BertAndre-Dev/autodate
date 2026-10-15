@@ -6,7 +6,7 @@ import { formatBlogDate } from "@/lib/blog";
 
 export default function BlogListing() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 md:px-8 md:py-16 lg:px-10 xl:px-14">
+    <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 md:px-8 md:py-16 lg:px-10 xl:px-14">
       <ScrollReveal>
         <header className="max-w-2xl">
           <span className="inline-flex items-center rounded-full bg-[#EFEFEF] px-4 py-2 text-xs font-semibold text-[#B71C1C] ring-1 ring-black/5">

@@ -9,49 +9,56 @@ function EdgeContours() {
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden
     >
-      <svg
-        className="absolute -left-10 top-6 h-[72%] w-44 text-[#D5D5D2] sm:w-56"
-        viewBox="0 0 200 640"
-        fill="none"
-      >
-        <path
-          d="M30 10c50 70 8 120 48 180s-6 110 36 170-16 120 24 190"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-        <path
-          d="M8 70c60 50 16 130 64 190s-4 120 40 190"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-        <path
-          d="M52 0c24 80-4 140 28 210s8 130 16 210"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-      </svg>
-      <svg
-        className="absolute -right-12 top-10 h-[68%] w-52 text-[#D5D5D2] sm:w-64"
-        viewBox="0 0 220 640"
-        fill="none"
-      >
-        <path
-          d="M190 20c-60 60-10 130-58 190s8 120-28 190 20 130-16 190"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-        <path
-          d="M210 90c-70 50-20 140-72 200s6 130-36 200"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-        <path
-          d="M160 0c-20 90 8 150-24 230s-10 140-18 220"
-          stroke="currentColor"
-          strokeWidth="1.1"
-        />
-      </svg>
+      <Image
+        src="/line.png"
+        alt=""
+        width={605}
+        height={1362}
+        className="absolute -left-28 top-2 h-112 w-auto max-w-none sm:-left-20 sm:h-144 lg:-left-16 lg:h-168"
+        style={{ width: "auto", filter: "brightness(0) invert(74%)" }}
+      />
+      <Image
+        src="/line.png"
+        alt=""
+        width={605}
+        height={1362}
+        className="absolute -right-28 top-8 h-104 w-auto max-w-none -scale-x-100 sm:-right-20 sm:h-136 lg:-right-16 lg:h-160"
+        style={{ width: "auto", filter: "brightness(0) invert(74%)" }}
+      />
     </div>
+  );
+}
+
+function SinceMark({ label, year }: Readonly<{ label: string; year: string }>) {
+  const text = `${label} ${year}`;
+
+  return (
+    <p className="mt-8 w-full sm:mt-10">
+      <svg
+        viewBox="0 0 1000 196"
+        role="img"
+        aria-label={text}
+        className="block h-auto w-full overflow-visible"
+      >
+        <text
+          x="500"
+          y="158"
+          textAnchor="middle"
+          fill="none"
+          stroke="#E35353"
+          strokeWidth="1.5"
+          vectorEffect="non-scaling-stroke"
+          strokeLinejoin="round"
+          fontFamily="Arial, Helvetica, sans-serif"
+          fontWeight="400"
+          fontSize="168"
+          textLength="972"
+          lengthAdjust="spacing"
+        >
+          {text}
+        </text>
+      </svg>
+    </p>
   );
 }
 
@@ -60,7 +67,7 @@ export default function AboutPageSections() {
     <>
       <section className="relative overflow-hidden bg-[#F7F7F5] pb-16 pt-14 md:pb-24 md:pt-20">
         <EdgeContours />
-        <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
+        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
           <ScrollReveal>
             <header className="mx-auto max-w-3xl text-center">
               <h1 className="text-4xl font-semibold tracking-tight text-[#4C4C4C] sm:text-5xl">
@@ -85,17 +92,12 @@ export default function AboutPageSections() {
             </div>
           </ScrollReveal>
 
-          <p
-            className="mt-8 flex justify-center text-[2.65rem] font-light leading-none tracking-[-0.04em] text-transparent min-[420px]:text-5xl sm:mt-10 sm:text-7xl md:text-8xl lg:text-[8.5rem]"
-            style={{ WebkitTextStroke: "1.5px #E35353" }}
-          >
-            <span>{aboutPage.sinceLabel} {aboutPage.sinceYear}</span>
-          </p>
+          <SinceMark label={aboutPage.sinceLabel} year={aboutPage.sinceYear} />
         </div>
       </section>
 
       <section className="bg-[#141414] py-20 text-white md:py-28">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
           <ScrollReveal>
             <header className="mx-auto max-w-4xl text-center">
               <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -131,7 +133,7 @@ export default function AboutPageSections() {
       </section>
 
       <section className="bg-[#F6F6F4] py-16 md:py-24">
-        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
           <div className="grid gap-5 lg:grid-cols-2 lg:gap-6">
             <ScrollReveal>
               <article className="h-full rounded-[1.35rem] border border-[#E7E7E7] bg-white px-7 py-9 sm:px-9 sm:py-11">

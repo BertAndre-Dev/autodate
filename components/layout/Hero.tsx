@@ -15,7 +15,7 @@ export default function Hero({
   return (
     <section className="relative overflow-hidden border-b border-foreground/10 bg-gradient-to-b from-foreground/5 via-background to-background">
       <div className="absolute inset-0 pointer-events-none" />
-      <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 md:px-8 lg:px-10 xl:px-14">
+      <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 md:px-8 lg:px-10 xl:px-14">
         <div className="flex flex-col gap-10">
           {variant === "pageTitle" && pageTitle ? (
             <ScrollReveal>

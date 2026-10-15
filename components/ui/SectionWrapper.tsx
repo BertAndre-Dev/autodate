@@ -21,7 +21,7 @@ export default function SectionWrapper({
       <Component
         className={cn(
           "relative overflow-hidden",
-          "py-16 md:py-20 bg-white mx-auto w-full max-w-6xl m-8 rounded-lg",
+          "py-16 md:py-20 bg-white mx-auto w-full max-w-7xl m-8 rounded-lg",
           className,
         )}
       >
@@ -31,7 +31,7 @@ export default function SectionWrapper({
           style={{ backgroundImage: 'url("/img.svg")' }}
         />
         <div className="absolute inset-0 bg-[#B71C1C]/70" aria-hidden="true" />
-        <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
+        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
           <div className="flex flex-col items-center justify-center text-center mb-10 gap-4">
             <h2 className="text-white text-3xl font-bold tracking-tight md:text-4xl">
               Ready to transform your fleet operations
@@ -56,7 +56,7 @@ export default function SectionWrapper({
         className,
       )}
     >
-      <div className="mx-auto w-full max-w-6xl">{children}</div>
+      <div className="mx-auto w-full max-w-7xl">{children}</div>
     </Component>
   );
 }

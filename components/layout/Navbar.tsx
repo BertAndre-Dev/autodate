@@ -37,7 +37,7 @@ export default function Navbar() {
         isScrolled ? "shadow-sm" : "",
       )}
     >
-      <div className="relative mx-auto flex w-full max-w-6xl items-center px-4 py-3.5 sm:px-6 md:px-8 lg:px-10 xl:px-14">
+      <div className="relative mx-auto flex w-full max-w-7xl items-center px-4 py-3.5 sm:px-6 md:px-8 lg:px-10 xl:px-14">
         <Link
           href="/"
           className="z-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30"
@@ -124,7 +124,7 @@ export default function Navbar() {
         hidden={!isMenuOpen}
         className="border-t border-neutral-200 bg-white md:hidden"
       >
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6">
           <nav
             aria-label={uiStrings.mobileNavLabel}
             className="flex flex-col gap-1"

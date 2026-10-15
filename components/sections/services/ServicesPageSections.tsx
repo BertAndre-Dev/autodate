@@ -5,7 +5,7 @@ import { servicesPage } from "@/constants";
 import type { ServicesPageSection } from "@/types";
 
 const shell =
-  "mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14";
+  "mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14";
 
 function HeroContours() {
   return (
@@ -13,27 +13,22 @@ function HeroContours() {
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden
     >
-      <svg
-        className="absolute -left-14 top-0 h-64 w-52 text-[#E3E3E0] sm:h-80 sm:w-64"
-        viewBox="0 0 220 420"
-        fill="none"
-      >
-        <path
-          d="M18 24c72 36 18 108 82 148s8 92 36 156"
-          stroke="currentColor"
-          strokeWidth="1.15"
-        />
-        <path
-          d="M-8 78c84 28 28 118 94 158s-2 84 28 146"
-          stroke="currentColor"
-          strokeWidth="1.15"
-        />
-        <path
-          d="M52 0c28 72-2 128 42 188s18 96 8 168"
-          stroke="currentColor"
-          strokeWidth="1.15"
-        />
-      </svg>
+      <Image
+        src="/line.png"
+        alt=""
+        width={605}
+        height={1362}
+        className="absolute -left-28 top-0 h-104 w-auto max-w-none sm:-left-20 sm:h-136 lg:-left-16 lg:h-160"
+        style={{ width: "auto", filter: "brightness(0) invert(74%)" }}
+      />
+      <Image
+        src="/line.png"
+        alt=""
+        width={605}
+        height={1362}
+        className="absolute -right-28 top-4 h-96 w-auto max-w-none -scale-x-100 sm:-right-20 sm:h-128 lg:-right-16 lg:h-152"
+        style={{ width: "auto", filter: "brightness(0) invert(74%)" }}
+      />
     </div>
   );
 }

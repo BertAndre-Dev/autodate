@@ -4,7 +4,7 @@ import { fleetOfferCards } from "@/constants";
 export default function FleetOfferSection() {
   return (
     <section className="bg-white py-8 md:py-12">
-      <div className="mx-auto grid w-full max-w-6xl items-stretch gap-4 px-4 sm:grid-cols-2 sm:px-6 md:px-8 lg:grid-cols-4 lg:px-10 xl:px-14">
+      <div className="mx-auto grid w-full max-w-7xl items-stretch gap-4 px-4 sm:grid-cols-2 sm:px-6 md:px-8 lg:grid-cols-4 lg:px-10 xl:px-0">
         {fleetOfferCards.map((card) => (
           <article
             key={card.title}
