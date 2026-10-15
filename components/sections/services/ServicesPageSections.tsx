@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/motion/ScrollReveal";
+import ServiceHeroZoomImage from "@/components/sections/services/ServiceHeroZoomImage";
 import { servicesPage } from "@/constants";
 import type { ServicesPageSection } from "@/types";
 
@@ -168,14 +169,9 @@ export default function ServicesPageSections() {
           </ScrollReveal>
 
           <ScrollReveal delayMs={80}>
-            <Image
+            <ServiceHeroZoomImage
               src={servicesPage.hero.imageSrc}
               alt={servicesPage.hero.imageAlt}
-              width={2400}
-              height={1040}
-              priority
-              sizes="(min-width: 1152px) 1088px, 100vw"
-              className="mt-10 h-auto w-full md:mt-12"
             />
           </ScrollReveal>
         </div>

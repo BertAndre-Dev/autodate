@@ -3,6 +3,10 @@
   isolation: isolate;
 }
 
+.frame :global(.leaflet-control a) {
+  cursor: pointer;
+}
+
 .frame :global(img) {
   max-width: none;
   max-height: none;

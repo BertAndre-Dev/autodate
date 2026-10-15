@@ -88,7 +88,7 @@ export default function Navbar() {
             }
             aria-expanded={isMenuOpen}
             aria-controls="site-mobile-nav"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-[#1A1A1A] transition-colors hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30 md:hidden"
+            className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg text-[#1A1A1A] transition-colors hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30 md:hidden"
           >
             {isMenuOpen ? (
               <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden>
