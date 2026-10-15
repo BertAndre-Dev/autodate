@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/motion/ScrollReveal";
 import ServiceHeroZoomImage from "@/components/sections/services/ServiceHeroZoomImage";
+import ServiceStack from "@/components/sections/services/ServiceStack";
 import { servicesPage } from "@/constants";
 import type { ServicesPageSection } from "@/types";
 
@@ -99,13 +100,18 @@ function ServiceCta({ href, label }: Readonly<{ href: string; label: string }>) 
   );
 }
 
-function ServiceBlock({ section }: Readonly<{ section: ServicesPageSection }>) {
+function ServiceBlock({
+  section,
+  index,
+}: Readonly<{ section: ServicesPageSection; index: number }>) {
   const media = <MediaPair images={section.images} />;
 
   return (
     <section
       id={section.id}
-      className="scroll-mt-28 border-b border-[#F2F2F2] py-16 last:border-b-0 md:py-24"
+      data-service-stack=""
+      className="relative scroll-mt-28 border-b border-[#F2F2F2] bg-white py-16 last:border-b-0 md:py-24 lg:sticky lg:border-b-0"
+      style={{ zIndex: index + 1 }}
     >
       <div className={shell}>
         <ScrollReveal>
@@ -147,6 +153,11 @@ function ServiceBlock({ section }: Readonly<{ section: ServicesPageSection }>) {
           </ScrollReveal>
         )}
       </div>
+      <div
+        data-service-overlay=""
+        className="pointer-events-none absolute inset-0 bg-black opacity-0"
+        aria-hidden
+      />
     </section>
   );
 }
@@ -177,9 +188,11 @@ export default function ServicesPageSections() {
         </div>
       </section>
 
-      {servicesPage.sections.map((section) => (
-        <ServiceBlock key={section.id} section={section} />
-      ))}
+      <ServiceStack>
+        {servicesPage.sections.map((section, index) => (
+          <ServiceBlock key={section.id} section={section} index={index} />
+        ))}
+      </ServiceStack>
     </div>
   );
 }
