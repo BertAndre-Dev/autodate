@@ -15,7 +15,7 @@ function EdgeContours() {
         width={605}
         height={1362}
         className="absolute -left-28 top-2 h-112 w-auto max-w-none sm:-left-20 sm:h-144 lg:-left-16 lg:h-168"
-        style={{ width: "auto", filter: "brightness(0) invert(74%)" }}
+        style={{ width: "auto", filter: "brightness(0) invert(95%)" }}
       />
       <Image
         src="/line.png"
@@ -23,7 +23,7 @@ function EdgeContours() {
         width={605}
         height={1362}
         className="absolute -right-28 top-8 h-104 w-auto max-w-none -scale-x-100 sm:-right-20 sm:h-136 lg:-right-16 lg:h-160"
-        style={{ width: "auto", filter: "brightness(0) invert(74%)" }}
+        style={{ width: "auto", filter: "brightness(0) invert(95%)" }}
       />
     </div>
   );

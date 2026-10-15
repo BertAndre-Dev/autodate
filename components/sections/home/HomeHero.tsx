@@ -12,15 +12,15 @@ function EdgeContours() {
   const lineStyle = {
     width: "auto",
     marginLeft: "-58%",
-    filter: "brightness(0) invert(74%)",
+    filter: "brightness(0) invert(95%)",
   } as const;
 
   return (
     <div
-      className="pointer-events-none absolute inset-0 overflow-hidden"
+      className="pointer-events-none absolute inset-0 z-20 overflow-hidden"
       aria-hidden
     >
-      <div className="absolute -left-4 top-0 h-112 w-16 overflow-hidden sm:h-144 sm:w-20 lg:-left-2 lg:h-168 lg:w-24">
+      <div className="absolute -left-4 top-0 h-112 w-16 overflow-visible sm:h-144 sm:w-20 lg:-left-2 lg:h-168 lg:w-24">
         <Image
           src="/line.png"
           alt=""
@@ -30,7 +30,7 @@ function EdgeContours() {
           style={lineStyle}
         />
       </div>
-      <div className="absolute -right-4 top-8 h-104 w-16 overflow-hidden sm:h-136 sm:w-20 lg:-right-2 lg:h-160 lg:w-24">
+      <div className="absolute -right-4 top-8 h-104 w-16 overflow-visible sm:h-136 sm:w-20 lg:-right-2 lg:h-160 lg:w-24">
         <Image
           src="/line.png"
           alt=""
@@ -111,9 +111,9 @@ export default function HomeHero() {
     <section className="relative overflow-hidden bg-white pb-16 pt-10 md:pb-20 md:pt-14 lg:pt-16">
       <EdgeContours />
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6">
-          <div className="flex min-w-0 flex-col">
+          <div className="flex gap-4 xl:gap-8 min-w-0 flex-col">
             <span className="inline-flex w-fit rounded-full bg-[#F3F4F6] px-5 py-2 text-sm font-medium text-[#6B7280]">
               {homeHeroLanding.pill}
             </span>
@@ -158,7 +158,7 @@ export default function HomeHero() {
               onSubmit={onBookDemo}
               noValidate
             >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="relative">
                 <label className="sr-only" htmlFor="hero-email">
                   {homeHeroLanding.emailPlaceholder}
                 </label>
@@ -175,11 +175,11 @@ export default function HomeHero() {
                   placeholder={homeHeroLanding.emailPlaceholder}
                   aria-invalid={emailError ? true : undefined}
                   aria-describedby={emailError ? "hero-email-error" : undefined}
-                  className="h-12 w-full rounded-lg border border-[#B71C1C] bg-white px-4 text-sm text-black outline-none placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30 sm:flex-1"
+                  className="h-12 w-full rounded-lg border border-[#B71C1C] bg-white pl-4 pr-36 text-sm text-black outline-none placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30"
                 />
                 <button
                   type="submit"
-                  className="inline-flex h-12 shrink-0 cursor-pointer items-center justify-center rounded-lg bg-[#B71C1C] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#9E1818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
+                  className="absolute right-1 top-1 inline-flex h-10 cursor-pointer items-center justify-center rounded-md bg-[#B71C1C] px-4 text-sm font-semibold whitespace-nowrap text-white transition-colors hover:bg-[#9E1818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
                 >
                   {homeHeroLanding.ctaLabel}
                 </button>
@@ -219,7 +219,7 @@ export default function HomeHero() {
                   />
                 </div>
 
-                <div className="absolute xl:top-110 xl:right-65 top-100 right-58">
+                <div className="absolute xl:top-125 xl:right-78 top-100 right-58">
                   <Image
                     src="/circle.svg"
                     alt="Decorative circle accent"
