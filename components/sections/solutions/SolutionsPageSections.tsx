@@ -101,23 +101,25 @@ export default function SolutionsPageSections() {
           <div className="mt-10 grid gap-5 md:mt-12 lg:grid-cols-2 lg:gap-6">
             {solutionsPage.pillars.map((pillar, index) => (
               <ScrollReveal key={pillar.title} delayMs={index * 40}>
-                <article className="flex h-full flex-col gap-6 rounded-[1.4rem] border border-[#F2F2F2] bg-white p-5 shadow-[0_10px_30px_rgba(17,17,17,0.04)] sm:flex-row sm:items-center sm:p-6">
+                <article className="group flex h-full cursor-pointer flex-col gap-6 rounded-[1.4rem] border border-[#F2F2F2] bg-white p-5 shadow-[0_10px_30px_rgba(17,17,17,0.04)] transition-[background-color,border-color] duration-200 ease-out hover:border-[#C4161C] hover:bg-[#C4161C] sm:flex-row sm:items-center sm:p-6">
                   <div className="min-w-0 flex-1">
-                    <h3 className="text-lg font-bold leading-snug tracking-tight text-[#111111]">
+                    <h3 className="text-lg font-bold leading-snug tracking-tight text-[#111111] transition-colors duration-200 ease-out group-hover:text-white">
                       {pillar.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-6 text-[#8D8D8D]">
+                    <p className="mt-3 text-sm leading-6 text-[#8D8D8D] transition-colors duration-200 ease-out group-hover:text-white">
                       {pillar.body}
                     </p>
                   </div>
-                  <Image
-                    src={pillar.imageSrc}
-                    alt={pillar.imageAlt}
-                    width={528}
-                    height={502}
-                    sizes="(min-width: 1024px) 240px, 80vw"
-                    className="h-auto w-full rounded-2xl sm:w-[46%] sm:max-w-56"
-                  />
+                  <div className="overflow-hidden rounded-2xl sm:w-[46%] sm:max-w-56">
+                    <Image
+                      src={pillar.imageSrc}
+                      alt={pillar.imageAlt}
+                      width={528}
+                      height={502}
+                      sizes="(min-width: 1024px) 240px, 80vw"
+                      className="h-auto w-full transition-transform duration-300 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                    />
+                  </div>
                 </article>
               </ScrollReveal>
             ))}

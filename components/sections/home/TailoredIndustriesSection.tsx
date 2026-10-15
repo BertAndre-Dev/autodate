@@ -27,7 +27,7 @@ function IndustryList({
           <li key={item.id}>
             <button
               type="button"
-              className="flex w-full items-center gap-4 rounded-xl bg-[#2A2A2A] px-4 py-4 text-left transition-colors hover:bg-[#333333] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]"
+              className="flex w-full cursor-pointer items-center gap-4 rounded-xl bg-[#2A2A2A] px-4 py-4 text-left transition-colors hover:bg-[#333333] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]"
               onClick={() => onToggle(item.id)}
               aria-expanded={isOpen}
             >

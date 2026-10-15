@@ -298,7 +298,7 @@ export default function ContactPageSections({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-5 flex h-12 w-full items-center justify-center rounded-lg bg-[#C4161C] text-sm font-semibold text-white transition-transform duration-100 ease-out hover:bg-[#A51218] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
+            className="mt-5 flex h-12 w-full cursor-pointer items-center justify-center rounded-lg bg-[#C4161C] text-sm font-semibold text-white transition-transform duration-100 ease-out hover:bg-[#A51218] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSubmitting ? contact.form.submittingLabel : contact.form.submitLabel}
           </button>
