@@ -1,10 +1,12 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
+import RevealOnScroll from "./reveal-on-scroll";
 import styles from "./partners-logo-slider.module.css";
 
 type Logo = { fileName: string; alt: string; width?: number; height?: number };
 
 const logos: Logo[] = [
-  { fileName: "Siemens-energy-logo (1) 2.svg", alt: "Siemens Energy" },
+  { fileName: "Siemens-energy-logo.svg", alt: "Siemens Energy" },
   { fileName: "British_Airways_(9) 1.svg", alt: "British Airways" },
   { fileName: "JF-Inspired-Copy 1.svg", alt: "JustFood" },
   { fileName: "hightechsynergy_logo 2.svg", alt: "Hightech Synergy" },
@@ -17,61 +19,33 @@ function toPublicSrc(fileName: string) {
   return encodeURI(`/slider/${fileName}`);
 }
 
-function LogoRow({ priority }: Readonly<{ priority?: boolean }>) {
-  return (
-    <div className={styles.row}>
-      {logos.map((logo, idx) => (
-        <div key={logo.fileName} className={styles.logoWrap}>
-          <Image
-            src={toPublicSrc(logo.fileName)}
-            alt={logo.alt}
-            width={logo.width ?? 190}
-            height={logo.height ?? 56}
-            className={styles.logo}
-            priority={priority && idx < 3}
-            loading={priority && idx < 3 ? "eager" : "lazy"}
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function LogoRowClone() {
-  return (
-    <div className={styles.row} aria-hidden="true">
-      {logos.map((logo) => (
-        <div key={`clone-${logo.fileName}`} className={styles.logoWrap}>
-          <Image
-            src={toPublicSrc(logo.fileName)}
-            alt={logo.alt}
-            width={logo.width ?? 190}
-            height={logo.height ?? 56}
-            className={styles.logo}
-            loading="lazy"
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function PartnersLogoSlider() {
   return (
     <section className="mx-auto py-20 md:py-28 bg-white w-full overflow-hidden">
-      <div className="flex flex-col items-center gap-6">
-          <span className="inline-flex rounded-full bg-[#EFEFEF] px-6 py-2 text-xs font-semibold text-neutral-700 ring-1 ring-neutral-200">
+      <div className="flex flex-col items-center gap-10">
+        <span className="inline-flex rounded-full bg-[#EFEFEF] px-6 py-2 text-xs font-semibold text-neutral-700 ring-1 ring-neutral-200">
           Trusted Fleet Solutions For
         </span>
 
-        <div className={styles.viewport}>
-          <div className={styles.track}>
-            <LogoRow priority />
-            <LogoRowClone />
-            {/* Third copy prevents gap when logos don't fill full width */}
-            <LogoRow />
-          </div>
-        </div>
+        <RevealOnScroll className={styles.grid}>
+          {logos.map((logo, idx) => (
+            <div
+              key={logo.fileName}
+              className={styles.logoWrap}
+              style={{ "--i": idx } as CSSProperties}
+            >
+              <Image
+                src={toPublicSrc(logo.fileName)}
+                alt={logo.alt}
+                width={logo.width ?? 190}
+                height={logo.height ?? 56}
+                className={styles.logo}
+                style={{ width: "auto" }}
+                loading="eager"
+              />
+            </div>
+          ))}
+        </RevealOnScroll>
       </div>
     </section>
   );

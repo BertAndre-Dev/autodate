@@ -37,7 +37,7 @@ export default function Navbar() {
       <div className="relative mx-auto flex w-full max-w-7xl items-center px-4 py-3.5 sm:px-6 md:px-8 lg:px-10 xl:px-14">
         <Link
           href="/"
-          className="z-10 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30"
+          className="z-10 inline-block shrink-0 origin-left cursor-pointer transition-transform duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/30 hover:scale-105 active:scale-[0.98] motion-reduce:transition-none"
         >
           <Image
             src="/logo.svg"

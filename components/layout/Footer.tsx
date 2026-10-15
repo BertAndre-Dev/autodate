@@ -281,13 +281,19 @@ export default function Footer() {
 
         <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 pb-6 sm:px-6 md:grid-cols-2 md:px-8 lg:grid-cols-[1.15fr_0.8fr_1.25fr_1fr] lg:px-10 xl:px-14">
           <div>
-            <Image
-              src="/footer/logo-light.png"
-              alt={siteConfig.name}
-              width={118}
-              height={44}
-              className="h-auto w-[132px]"
-            />
+            <Link
+              href="/"
+              className="inline-block origin-left cursor-pointer transition-transform duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 hover:scale-105 active:scale-[0.98] motion-reduce:transition-none"
+            >
+              <Image
+                src="/footer/logo-light.png"
+                alt={siteConfig.name}
+                width={118}
+                height={44}
+                className="h-auto w-[132px]"
+                style={{ height: "auto" }}
+              />
+            </Link>
             <p className="mt-4 text-sm text-white/90">{footerCta.brandLine}</p>
           </div>
 

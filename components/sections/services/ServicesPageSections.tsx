@@ -21,7 +21,7 @@ function HeroContours() {
         width={605}
         height={1362}
         className="absolute -left-28 top-0 h-104 w-auto max-w-none sm:-left-20 sm:h-136 lg:-left-16 lg:h-160"
-        style={{ width: "auto", filter: "brightness(0) invert(74%)" }}
+        style={{ width: "auto", filter: "brightness(0) invert(95%)" }}
       />
       <Image
         src="/line.png"
@@ -29,7 +29,7 @@ function HeroContours() {
         width={605}
         height={1362}
         className="absolute -right-28 top-4 h-96 w-auto max-w-none -scale-x-100 sm:-right-20 sm:h-128 lg:-right-16 lg:h-152"
-        style={{ width: "auto", filter: "brightness(0) invert(74%)" }}
+        style={{ width: "auto", filter: "brightness(0) invert(95%)" }}
       />
     </div>
   );
