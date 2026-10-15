@@ -95,7 +95,7 @@ function ServiceCta({ href, label }: Readonly<{ href: string; label: string }>) 
     <div className="flex justify-center">
       <Link
         href={href}
-        className="inline-flex h-12 items-center justify-center rounded-lg bg-[#C4161C] px-7 text-sm font-medium text-white transition-colors duration-200 hover:bg-[#A51218] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C4161C]/40"
+        className="inline-flex h-12 items-center justify-center rounded-lg bg-[#B71C1C] px-7 text-sm font-medium text-white transition-colors duration-200 hover:bg-[#A51218] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
       >
         {label}
       </Link>
@@ -113,11 +113,11 @@ function ServiceBlock({ section }: Readonly<{ section: ServicesPageSection }>) {
     >
       <div className={shell}>
         <ScrollReveal>
-          <div className="grid items-start gap-6 md:grid-cols-2 md:gap-x-16 lg:gap-x-24">
-            <p className="order-2 max-w-md text-[15px] leading-7 text-[#2A2A2A] md:order-1 md:pt-1.5 md:text-base md:leading-8">
+          <div className="grid items-start gap-6 md:grid-cols-2 md:gap-x-16 xl:gap-x-24">
+            <p className="order-2 max-w-md text-[15px] leading-7 text-[#4C4C4C] md:order-1 md:pt-1.5 md:text-base md:leading-8">
               {section.body}
             </p>
-            <h2 className="order-1 text-[2.15rem] font-semibold leading-[1.15] tracking-tight text-[#3A3A3A] md:order-2 md:text-5xl md:leading-[1.12]">
+            <h2 className="order-1 text-[2.15rem] font-semibold leading-[1.15] tracking-tight text-[#4C4C4C] md:order-2 md:text-5xl md:leading-[1.12]">
               {section.title}
             </h2>
           </div>
@@ -163,10 +163,10 @@ export default function ServicesPageSections() {
         <div className={`relative ${shell}`}>
           <ScrollReveal>
             <header className="mx-auto max-w-3xl text-center">
-              <h1 className="text-4xl font-semibold tracking-tight text-[#3A3A3A] sm:text-5xl">
+              <h1 className="text-4xl font-semibold tracking-tight text-[#4C4C4C] sm:text-5xl">
                 {servicesPage.hero.title}
               </h1>
-              <p className="mt-4 text-balance text-base font-medium leading-7 text-[#1A1A1A] sm:text-lg">
+              <p className="mt-4 text-balance text-base font-regular leading-7 text-[#000000]">
                 {servicesPage.hero.subtitle}
               </p>
             </header>

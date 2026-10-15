@@ -63,10 +63,10 @@ export default function AboutPageSections() {
         <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
           <ScrollReveal>
             <header className="mx-auto max-w-3xl text-center">
-              <h1 className="text-4xl font-semibold tracking-tight text-[#3A3A3A] sm:text-5xl">
+              <h1 className="text-4xl font-semibold tracking-tight text-[#4C4C4C] sm:text-5xl">
                 {aboutPage.title}
               </h1>
-              <p className="mt-4 text-balance text-base font-medium leading-7 text-[#1A1A1A] sm:text-lg">
+              <p className="mt-4 text-balance text-base font-medium leading-7 text-[#000000] sm:text-lg">
                 {aboutPage.subtitle}
               </p>
             </header>
@@ -101,7 +101,7 @@ export default function AboutPageSections() {
               <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
                 {aboutPage.whoTitle}
               </h2>
-              <p className="mt-6 text-pretty text-base leading-8 text-white sm:text-lg sm:leading-8">
+              <p className="mt-6 text-pretty text-base font-regular leading-8 text-white sm:leading-8">
                 {aboutPage.whoBody}
               </p>
             </header>
@@ -118,10 +118,10 @@ export default function AboutPageSections() {
                   className="h-11 w-auto"
                   style={{ width: "auto", height: "2.75rem" }}
                 />
-                <h3 className="mt-5 text-3xl font-semibold tracking-tight">
+                <h3 className="mt-5 text-3xl font-regular tracking-tight">
                   {item.title}
                 </h3>
-                <p className="mt-3 max-w-sm text-base leading-7 text-white">
+                <p className="mt-3 max-w-sm text-base font-regular leading-7 text-white">
                   {item.body}
                 </p>
               </ScrollReveal>
@@ -135,10 +135,10 @@ export default function AboutPageSections() {
           <div className="grid gap-5 lg:grid-cols-2 lg:gap-6">
             <ScrollReveal>
               <article className="h-full rounded-[1.35rem] border border-[#E7E7E7] bg-white px-7 py-9 sm:px-9 sm:py-11">
-                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-[2rem]">
+                <h2 className="text-3xl font-regular tracking-tight text-black sm:text-[2rem]">
                   {aboutPage.approachTitle}
                 </h2>
-                <p className="mt-5 text-base leading-8 text-[#1A1A1A]">
+                <p className="mt-5 text-base font-regular leading-8 text-[#1A1A1A]">
                   {aboutPage.approachBody}
                 </p>
               </article>
@@ -146,10 +146,10 @@ export default function AboutPageSections() {
 
             <ScrollReveal delayMs={80}>
               <article className="h-full rounded-[1.35rem] border border-[#E7E7E7] bg-white px-7 py-9 sm:px-9 sm:py-11">
-                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-[2rem]">
+                <h2 className="text-3xl font-regular tracking-tight text-black sm:text-[2rem]">
                   {aboutPage.focusTitle}
                 </h2>
-                <ul className="mt-5 list-disc space-y-4 pl-5 text-base leading-7 text-[#1A1A1A] marker:text-black">
+                <ul className="mt-5 list-disc space-y-4 pl-5 text-base font-regular   leading-7 text-[#1A1A1A] marker:text-black">
                   {aboutPage.focus.map((item) => (
                     <li key={item.label}>
                       <span className="font-semibold">{item.label}:</span>{" "}
@@ -163,10 +163,10 @@ export default function AboutPageSections() {
 
           <ScrollReveal>
             <div className="mt-20 md:mt-28">
-              <h2 className="text-4xl font-bold tracking-tight text-black sm:text-5xl">
+              <h2 className="text-4xl font-regular tracking-tight text-black sm:text-5xl">
                 {aboutPage.locationTitle}
               </h2>
-              <p className="mt-4 max-w-4xl text-base font-semibold leading-7 text-black sm:text-lg">
+              <p className="mt-4 max-w-4xl text-base font-regular leading-7 text-black sm:text-lg">
                 {aboutPage.locationBody}
               </p>
             </div>
