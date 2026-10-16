@@ -179,7 +179,7 @@ export default function HomeHero() {
                   />
                   <button
                     type="submit"
-                    className="absolute right-1 top-1 inline-flex h-10 cursor-pointer items-center justify-center rounded-md bg-[#B71C1C] px-4 text-sm font-semibold whitespace-nowrap text-white transition-colors hover:bg-[#9E1818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
+                    className="absolute right-1 top-1 inline-flex h-10 cursor-pointer rounded-md bg-[#B71C1C] px-4 text-sm font-semibold whitespace-nowrap text-white transition-colors hover:bg-[#9E1818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
                   >
                     {homeHeroLanding.ctaLabel}
                   </button>
