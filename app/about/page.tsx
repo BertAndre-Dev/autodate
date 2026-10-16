@@ -1,11 +1,13 @@
 import AboutPageSections from "@/components/sections/about/AboutPageSections";
-import { aboutPage, siteConfig } from "@/constants";
+import { aboutPage } from "@/constants";
+import { pageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About Us",
-  description: `${aboutPage.subtitle} ${siteConfig.name} supports vehicles from acquisition through disposal.`,
-};
+  description: `${aboutPage.whoBody}`,
+  path: "/about",
+});
 
 export default function AboutPage() {
   return <AboutPageSections />;

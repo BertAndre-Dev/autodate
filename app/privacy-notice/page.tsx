@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Notice",
-  description:
-    "Privacy Notice for BertAndre Consulting Limited.",
+  description: "Privacy Notice for BertAndre Consulting Limited.",
+  alternates: { canonical: "/privacy-notice" },
 };
 
 const privacyText = `Privacy Notice

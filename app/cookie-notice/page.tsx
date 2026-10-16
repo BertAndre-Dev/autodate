@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Cookie Notice & Policy",
-  description:
-    "Cookie Notice & Policy for BertAndre Consulting Limited.",
+  description: "Cookie Notice & Policy for BertAndre Consulting Limited.",
+  alternates: { canonical: "/cookie-notice" },
 };
 
 const cookieText = `Cookie Notice

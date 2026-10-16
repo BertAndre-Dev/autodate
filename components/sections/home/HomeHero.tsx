@@ -12,7 +12,7 @@ function EdgeContours() {
   const lineStyle = {
     width: "auto",
     marginLeft: "-58%",
-    filter: "brightness(0) invert(95%)",
+    filter: "brightness(0) invert(98%)",
   } as const;
 
   return (
@@ -20,7 +20,7 @@ function EdgeContours() {
       className="pointer-events-none absolute inset-0 z-20 overflow-hidden"
       aria-hidden
     >
-      <div className="absolute -left-4 top-0 hidden h-112 w-16 overflow-visible sm:h-144 sm:w-20 lg:-left-2 xl:block lg:h-168 lg:w-24">
+      <div className="absolute -left-4 top-0 hidden h-112 w-16 overflow-visible sm:h-144 sm:w-20 md:block lg:-left-2 lg:hidden lg:h-168 lg:w-24 xl:block">
         <Image
           src="/line.png"
           alt=""
@@ -30,7 +30,7 @@ function EdgeContours() {
           style={lineStyle}
         />
       </div>
-      <div className="absolute -right-4 top-8 h-104 w-16 overflow-visible sm:h-136 sm:w-20 lg:-right-2 lg:hidden lg:h-160 lg:w-24 xl:block">
+      <div className="absolute -right-4 top-8 hidden h-104 w-16 overflow-visible sm:h-136 sm:w-20 md:block lg:-right-2 lg:hidden lg:h-160 lg:w-24 xl:block">
         <Image
           src="/line.png"
           alt=""
@@ -113,16 +113,16 @@ export default function HomeHero() {
       <EdgeContours />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6">
-          <div className="flex gap-4 lg:gap-10  min-w-0 flex-col">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6 xl:gap-0">
+          <div className="flex min-w-0 flex-col items-center gap-4 text-center lg:items-start lg:gap-10 xl:gap-8 lg:text-left">
             <span className="inline-flex w-fit rounded-full bg-[#F3F4F6] px-5 py-2 text-sm font-medium text-[#6B7280]">
               {homeHeroLanding.pill}
             </span>
 
-            <div className="flex flex-col gap-2">
-              <h1 className="mt-6 text-[2.35rem] font-bold leading-[1.05] tracking-tight text-black sm:text-5xl lg:text-[3.35rem]">
-                <span className="block">{homeHeroLanding.titleLine1}</span>
-                <span className="mt-1 block">{homeHeroLanding.titleLine2}</span>
+            <div className="flex w-full flex-col items-center gap-2 lg:items-start">
+              <h1 className="mt-6 w-full text-[2.35rem] font-bold leading-[1.05] tracking-tight text-black sm:text-5xl lg:text-[3.35rem]">
+                <span className="block leading-18 tracking-tight">{homeHeroLanding.titleLine1}</span>
+                <span className="mt-1 leading-18 tracking-tight block">{homeHeroLanding.titleLine2}</span>
               </h1>
 
               <p
@@ -151,11 +151,11 @@ export default function HomeHero() {
                 />
               </p>
 
-              <p className="mt-6 max-w-md text-base leading-7 text-[#4C4C4C] sm:text-lg">
+              <p className="mt-6 w-full max-w-md text-base leading-7 text-[#4C4C4C] sm:text-lg">
                 {homeHeroLanding.description}
               </p>
 
-              <form className="mt-8 max-w-md" onSubmit={onBookDemo} noValidate>
+              <form className="mt-8 w-full max-w-md" onSubmit={onBookDemo} noValidate>
                 <div className="relative">
                   <label className="sr-only" htmlFor="hero-email">
                     {homeHeroLanding.emailPlaceholder}
@@ -179,7 +179,7 @@ export default function HomeHero() {
                   />
                   <button
                     type="submit"
-                    className="absolute right-1 top-1 inline-flex h-10 cursor-pointer rounded-md bg-[#B71C1C] px-4 text-sm font-semibold whitespace-nowrap text-white transition-colors hover:bg-[#9E1818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
+                    className="absolute right-1 top-1 inline-flex h-10 cursor-pointer items-center justify-center rounded-md bg-[#B71C1C] px-4 text-sm leading-none font-semibold whitespace-nowrap text-white transition-colors hover:bg-[#9E1818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B71C1C]/40"
                   >
                     {homeHeroLanding.ctaLabel}
                   </button>
@@ -194,7 +194,7 @@ export default function HomeHero() {
                 ) : null}
               </form>
 
-              <dl className="mt-8 grid max-w-md grid-cols-3 gap-4">
+              <dl className="mt-8 grid w-full max-w-md grid-cols-3 gap-4">
                 {homeHeroLanding.stats.map((stat) => (
                   <div key={stat.label}>
                     <dd className="text-2xl font-bold text-[#B71C1C] sm:text-[1.7rem]">
