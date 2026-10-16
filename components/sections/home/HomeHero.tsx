@@ -114,15 +114,15 @@ export default function HomeHero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6">
-          <div className="flex gap-4 lg:gap-10  min-w-0 flex-col">
+          <div className="flex gap-4 lg:gap-10  min-w-0 flex-col items-center justify-center xl:items-start xl:justify-start">
             <span className="inline-flex w-fit rounded-full bg-[#F3F4F6] px-5 py-2 text-sm font-medium text-[#6B7280]">
               {homeHeroLanding.pill}
             </span>
 
-            <div className="flex items-center justify-center flex-col gap-2">
-              <h1 className="mt-6 text-[2.35rem] font-bold leading-[1.05] tracking-tight text-black sm:text-5xl lg:text-[3.35rem]">
-                <span className="block">{homeHeroLanding.titleLine1}</span>
-                <span className="mt-1 block">{homeHeroLanding.titleLine2}</span>
+            <div className="flex items-center justify-center xl:justify-start flex-col gap-2">
+              <h1 className="mt-6 text-[2.35rem] text-center xl:text-left font-bold leading-[1.05] tracking-tight text-black sm:text-5xl lg:text-[3.35rem]">
+                <span className="block text-center xl:text-left">{homeHeroLanding.titleLine1}</span>
+                <span className="mt-1 block text-center xl:text-left">{homeHeroLanding.titleLine2}</span>
               </h1>
 
               <p
