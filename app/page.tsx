@@ -5,11 +5,14 @@ import HomePageSections from "@/components/sections/home/HomePageSections";
 // import SectionWrapper from "@/components/ui/SectionWrapper";
 import type { Metadata } from "next";
 import { siteConfig } from "@/constants";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: `Home | ${siteConfig.name}`,
+export const metadata: Metadata = pageMetadata({
+  title: siteConfig.title,
   description: siteConfig.description,
-};
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return (

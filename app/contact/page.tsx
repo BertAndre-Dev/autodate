@@ -1,11 +1,13 @@
 import ContactPageSections from "@/components/sections/contact/ContactPageSections";
-import { siteConfig } from "@/constants";
+import { contactPage, siteConfig } from "@/constants";
+import { pageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact Us",
-  description: `Visit, call, or message ${siteConfig.name}. The team replies to sales, partnership, and general questions.`,
-};
+  description: `Book a demo or message ${siteConfig.name} at ${contactPage.email.address} or ${contactPage.call.phone}. ${contactPage.visit.body}.`,
+  path: "/contact",
+});
 
 export default async function ContactPage({
   searchParams,

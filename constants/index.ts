@@ -14,9 +14,9 @@ export const siteConfig = {
   name: "AutoDate",
   tagline: "SMART FLEET",
 
-  title: "AutoDate — Precision Engineering",
+  title: "AutoDate | Intelligent Fleet Solutions",
   description:
-    "From prototype to production, AutoDate helps teams engineer reliable products with speed, quality, and clarity.",
+    "AutoDate manages enterprise fleets from purchase and leasing through maintenance, compliance, and disposal, with the Smart Fleet platform.",
 } as const;
 
 export const navLinks: NavLink[] = [
